@@ -115,7 +115,7 @@ function RegisterForm() {
       <div className="relative z-10 flex flex-col items-center w-full max-w-lg">
         <div className="flex items-center justify-center mb-8">
           <Image
-            src="/dan-logo.png"
+            src="/babydan-logo.png"
             alt="DAN Binary Logo"
             width={200}
             height={80}

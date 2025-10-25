@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/store/auth";
-import LogoImg from "@/images/DAN Binary Logo.png";
-import BG from "@/images/Background.png";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -60,20 +58,20 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src={BG}
+          src="/background.jpg"
           alt="Background"
           fill
           className="object-cover"
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#7C27BF] to-[#263450] mix-blend-hue" />
+        
       </div>
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-lg">
         <div className="flex items-center justify-center mb-8">
           <Image
-            src="/dan-logo.png"
+            src="/babydan-logo.png"
             alt="DAN Binary Logo"
             width={200}
             height={80}
@@ -83,10 +81,10 @@ export default function LoginPage() {
         </div>
 
         <div className="w-full max-w-md min-h-[300px] border border-white/44 backdrop-blur-sm rounded-2xl p-8 shadow-xl flex flex-col justify-center">
-          <h1 className="text-center text-white text-6xl mb-6">Login</h1>
+          <h1 className="text-center text-6xl mb-6">Login</h1>
 
           {!connectedAddress && !isAuthenticated && (
-            <div className="text-yellow-400 text-center mb-4 p-3 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
+            <div className="text-yellow-600 text-center mb-4 p-3 bg-yellow-400/20 border border-yellow-500/30 rounded-lg">
               Notice: Please unlock your wallet before logging in.
             </div>
           )}
@@ -98,7 +96,7 @@ export default function LoginPage() {
           )}
 
           {isAuthenticated && jwtToken && (
-            <div className="text-white text-center mb-6 space-y-2">
+            <div className="text-black text-center mb-6 space-y-2">
               <div className="text-sm text-white/80">
                 Authentication Status:
               </div>
@@ -116,11 +114,11 @@ export default function LoginPage() {
 
           {connectedAddress && !isAuthenticated && (
             <div className="text-white text-center mb-6 space-y-2">
-              <div className="text-sm text-white/80">Wallet Connected:</div>
-              <div className="break-words text-lg font-mono bg-white/10 p-2 rounded">
+              <div className="text-sm text-black/80">Wallet Connected:</div>
+              <div className="break-words text-lg font-mono bg-white/10 p-2 rounded text-black">
                 {connectedAddress}
               </div>
-              <div className="text-xs text-yellow-400">
+              <div className="text-xs text-yellow-500">
                 Ready to authenticate with backend
               </div>
             </div>
@@ -129,7 +127,7 @@ export default function LoginPage() {
           <Button
             onClick={handleLogin}
             disabled={isLoading}
-            className="w-full h-16 max-w-[500px] bg-white border-2 border-[#9058FE] text-[#9058FE] font-medium text-2xl rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full h-16 max-w-[500px] bg-white border-2 border-yellow-500 text-yellow-500 font-medium text-2xl rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:bg-yellow-500/25 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             {isLoading
               ? "Processing..."
@@ -144,7 +142,7 @@ export default function LoginPage() {
             <Button
               onClick={handleLogout}
               variant="outline"
-              className="w-full h-12 mt-4 border border-white/30 text-white bg-transparent hover:bg-white/10 transition-all duration-300"
+              className="w-full h-12 mt-4 border border-black/30 text-black bg-transparent hover:bg-yellow-500/10 transition-all duration-300 cursor-pointer"
             >
               {isAuthenticated ? "Logout" : "Disconnect Wallet"}
             </Button>

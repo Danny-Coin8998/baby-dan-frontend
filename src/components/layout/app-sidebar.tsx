@@ -91,7 +91,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
         <div className="flex h-30 items-center px-4">
           <div className="flex items-center space-x-10">
             <Image
-              src="/dan-logo.png"
+              src="/babydan-logo.png"
               alt="DAN BINARY Logo"
               width={140}
               height={75}
