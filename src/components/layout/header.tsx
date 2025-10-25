@@ -24,14 +24,14 @@ export function Header() {
   };
 
   return (
-    <header className="flex h-16 items-center justify-end bg-[#101828]">
+    <header className="flex h-16 items-center justify-end bg-white">
       <div className="flex items-center space-x-4 pr-10">
         <Button
-          variant="outline"
+          variant="ghost"
           size="sm"
-          className="rounded-xl bg-transparent  font-normal"
+          className="rounded-xl bg-transparent font-normal cursor-pointer border-gray-300 border"
         >
-          Dashboard <LayoutDashboard className="fill-white" />
+          Dashboard <LayoutDashboard className="fill-black" />
         </Button>
         <Button
           variant="outline"

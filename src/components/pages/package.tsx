@@ -43,7 +43,7 @@ const getAccounts = (userBalance: number): AccountItem[] => [
   // { id: "wallet", label: "Wallet", value: "0.00 USDT", color: "#FECA58" },
 ];
 
-const canInvest = false;
+const canInvest = true;
 
 export default function PackagePage() {
   const {
@@ -311,7 +311,7 @@ export default function PackagePage() {
                     className="text-black"
                   />
                 </Button>
-                Package Cards
+                {/* Package Cards */}
                 <div className="flex gap-3 sm:gap-5 md:gap-6 flex-1 justify-center max-w-2xl sm:max-w-3xl md:max-w-5xl">
                   {packages && packages.length > 0 ? (
                     packages
@@ -349,8 +349,8 @@ export default function PackagePage() {
                                 <div
                                   className={`${colors.amountColor} text-md sm:text-xl md:text-3xl font-bold mb-1 sm:mb-2`}
                                 >
-                                  {pkg.required_dan.toFixed(2)} DAN
-                                  {/* {pkg.p_name} */}
+                                  {/* {pkg.required_dan.toFixed(2)} DAN */}
+                                  {pkg.p_name}
                                 </div>
                                 <div className="text-gray-400 text-xs sm:text-sm md:text-lg opacity-80">
                                   ({pkg.p_name})
@@ -406,7 +406,7 @@ export default function PackagePage() {
 
         {/* Invest by */}
         <div className="mb-6">
-          <div className="flex items-center gap-2 mb-4">
+          {/* <div className="flex items-center gap-2 mb-4">
             <h3 className=" text-lg sm:text-3xl font-medium flex items-center gap-2 md:gap-2">
               Invest by
               <Image
@@ -417,9 +417,9 @@ export default function PackagePage() {
                 className="object-contain sm:w-[24px] sm:h-[24px] md:w-[30px] md:h-[30px]"
               />
             </h3>
-          </div>
+          </div> */}
           <Separator className="bg-[#ffffff] h-px mb-3 md:mb-5" />
-          {canInvest ? (
+          {/* {canInvest ? (
             <div className="space-y-4">
               {getAccounts(userBalance).map((account) => (
                 <div key={account.id} className="flex items-center gap-3">
@@ -453,7 +453,7 @@ export default function PackagePage() {
               You cannot invest right now the pool was empty please contact
               admin
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Invest Button */}
@@ -473,7 +473,7 @@ export default function PackagePage() {
                 boxShadow: "3px 0px 4px 0px #00000040",
               }}
             >
-              {buyingPackage ? "Processing..." : "Invest"}
+              {buyingPackage ? "Processing..." : "Buy Package"}
             </Button>
           </div>
         )}
