@@ -67,7 +67,7 @@ const TreeNode = ({
       >
         <Users
           className={`w-10 h-10 mx-1 my-1 ${
-            isRoot ? "text-white" : "text-blue-400"
+            isRoot ? "" : "text-blue-400"
           }`}
         />
       </div>
@@ -75,7 +75,7 @@ const TreeNode = ({
         <div className="flex items-center gap-2">
           <p
             className={`${
-              isRoot ? "text-white font-bold" : "text-white font-semibold"
+              isRoot ? " font-bold" : " font-semibold"
             } text-sm truncate max-w-[100px]`}
           >
             {name}
@@ -87,7 +87,7 @@ const TreeNode = ({
             isRoot
               ? "bg-yellow-500/90 hover:bg-yellow-500"
               : "bg-blue-600/90 hover:bg-blue-600"
-          } text-white text-xs px-2 py-0.5`}
+          }  text-xs px-2 py-0.5`}
         >
           #{userid}
         </Badge>
@@ -110,7 +110,7 @@ const TreeNode = ({
           <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
             Self
           </p>
-          <p className="text-white font-bold text-sm">
+          <p className=" font-bold text-sm">
             {new Intl.NumberFormat().format(s_pv)}
           </p>
         </div>
@@ -154,7 +154,7 @@ export default function TeamPage() {
         <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-3 md:gap-4">
             <div className="p-3 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg">
-              <Network className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <Network className="w-6 h-6 md:w-8 md:h-8 " />
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               My Team
@@ -196,7 +196,7 @@ export default function TeamPage() {
         <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-3 md:gap-4">
             <div className="p-3 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg">
-              <Network className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <Network className="w-6 h-6 md:w-8 md:h-8 " />
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               My Team
@@ -228,7 +228,7 @@ export default function TeamPage() {
         <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-3 md:gap-4">
             <div className="p-3 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg">
-              <Network className="w-6 h-6 md:w-8 md:h-8 text-white" />
+              <Network className="w-6 h-6 md:w-8 md:h-8 " />
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               My Team
@@ -259,7 +259,7 @@ export default function TeamPage() {
       <div className="mb-6 md:mb-8">
         <div className="flex items-center gap-3 md:gap-4">
           <div className="p-3 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg shadow-purple-500/20">
-            <Network className="w-6 h-6 md:w-8 md:h-8 text-white" />
+            <Network className="w-6 h-6 md:w-8 md:h-8 " />
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
             My Team
@@ -286,7 +286,7 @@ export default function TeamPage() {
                     Total Referrals
                   </p>
                 </div>
-                <p className="text-white text-3xl font-bold group-hover:text-purple-400 transition-colors">
+                <p className=" text-3xl font-bold group-hover:text-purple-400 transition-colors">
                   {teamData.total_referrals}
                 </p>
               </div>
@@ -312,7 +312,7 @@ export default function TeamPage() {
                     Left Team
                   </p>
                 </div>
-                <p className="text-white text-3xl font-bold group-hover:text-blue-400 transition-colors">
+                <p className=" text-3xl font-bold group-hover:text-blue-400 transition-colors">
                   {teamData.children.left.length}
                 </p>
               </div>
@@ -338,7 +338,7 @@ export default function TeamPage() {
                     Right Team
                   </p>
                 </div>
-                <p className="text-white text-3xl font-bold group-hover:text-green-400 transition-colors">
+                <p className=" text-3xl font-bold group-hover:text-green-400 transition-colors">
                   {teamData.children.right.length}
                 </p>
               </div>
@@ -361,17 +361,17 @@ export default function TeamPage() {
           <CardHeader className="pb-3">
             <div className="flex items-center gap-2">
               <Crown className="w-5 h-5 text-purple-400" />
-              <CardTitle className="text-white text-base">Sponsor</CardTitle>
+              <CardTitle className=" text-base">Sponsor</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <div className="flex items-center justify-between">
-              <p className="text-white font-semibold text-lg">
+              <p className=" font-semibold text-lg">
                 {teamData.sponsor.name}
               </p>
               <Badge
                 variant="secondary"
-                className="bg-gradient-to-r from-purple-600 to-purple-700 text-white text-xs px-3 py-1"
+                className="bg-gradient-to-r from-purple-600 to-purple-700  text-xs px-3 py-1"
               >
                 #{teamData.sponsor.userid}
               </Badge>
@@ -388,17 +388,17 @@ export default function TeamPage() {
           <CardHeader className="pb-3">
             <div className="flex items-center gap-2">
               <Award className="w-5 h-5 text-purple-400" />
-              <CardTitle className="text-white text-base">Upline</CardTitle>
+              <CardTitle className=" text-base">Upline</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <div className="flex items-center justify-between">
-              <p className="text-white font-semibold text-lg">
+              <p className=" font-semibold text-lg">
                 {teamData.upline.name}
               </p>
               <Badge
                 variant="secondary"
-                className="bg-gradient-to-r from-purple-600 to-purple-700 text-white text-xs px-3 py-1"
+                className="bg-gradient-to-r from-purple-600 to-purple-700  text-xs px-3 py-1"
               >
                 #{teamData.upline.userid}
               </Badge>
@@ -417,9 +417,9 @@ export default function TeamPage() {
         <CardHeader className="border-b border-[#333]">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl">
-              <Network className="w-5 h-5 text-white" />
+              <Network className="w-5 h-5 " />
             </div>
-            <CardTitle className="text-white text-xl">
+            <CardTitle className=" text-xl">
               Binary Team Structure
             </CardTitle>
           </div>

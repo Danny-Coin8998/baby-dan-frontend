@@ -178,7 +178,11 @@
 .dashboard-gradient {
   background: linear-gradient(
     180deg,
-    rgba(52, 57, 103, 0.6) 0%,
-    rgba(103, 113, 205, 0.6) 100%
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 248, 245, 0.9) 30%,
+    rgba(255, 248, 235, 0.85) 60%,
+    rgba(255, 240, 214, 0.9) 100%
   );
+  /* backdrop-filter: blur(0px); */
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.15);
 }

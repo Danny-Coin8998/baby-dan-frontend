@@ -32,7 +32,7 @@ const Button = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500 ${sizeStyles[size]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-purple-600  hover:bg-purple-700 focus:ring-purple-500 ${sizeStyles[size]} ${className}`}
     >
       {children}
     </button>
@@ -151,7 +151,7 @@ export default function DirectPage(): JSX.Element {
       <div className="w-full space-y-3 sm:space-y-4 px-2 sm:px-0">
         <div className="space-y-2">
           <div className="flex items-center gap-2 sm:gap-3">
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
+            <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
               My Direct Referral
               <Image
                 src={Direct}
@@ -168,7 +168,7 @@ export default function DirectPage(): JSX.Element {
 
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="text-white text-lg">Loading...</div>
+            <div className=" text-lg">Loading...</div>
           </div>
         )}
 
@@ -201,7 +201,7 @@ export default function DirectPage(): JSX.Element {
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div>
-                      <div className="text-white text-sm font-medium">
+                      <div className=" text-sm font-medium">
                         {row.name}
                       </div>
                       <div className="text-gray-300 text-xs mt-1">
@@ -244,8 +244,8 @@ export default function DirectPage(): JSX.Element {
                       onClick={() => handlePageChange(page)}
                       className={`w-8 h-8 sm:w-10 sm:h-10 !rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
                         page === currentPage
-                          ? "!bg-gradient-to-r from-[#9058FE] to-[#563598] !text-white shadow-lg transform scale-105"
-                          : "bg-transparent border-2 border-[#9058FE] !text-gray-300 hover:!text-white"
+                          ? "!bg-gradient-to-r from-[#9058FE] to-[#563598] ! shadow-lg transform scale-105"
+                          : "bg-transparent border-2 border-[#9058FE] !text-gray-300 hover:!"
                       }`}
                     >
                       {page}
@@ -253,7 +253,7 @@ export default function DirectPage(): JSX.Element {
                   ))}
 
                   {currentPage < totalPages && (
-                    <Button className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full bg-transparent border-2 border-[#9058FE] text-gray-300 hover:bg-gray-500/60 hover:text-white transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer">
+                    <Button className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full bg-transparent border-2 border-[#9058FE] text-gray-300 hover:bg-gray-500/60 hover: transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer">
                       <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   )}
@@ -275,22 +275,22 @@ export default function DirectPage(): JSX.Element {
                 <table className="w-full min-w-[800px] relative">
                   <thead>
                     <tr className="relative border-b border-white/20">
-                      <th className="text-white text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
+                      <th className=" text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
                         No.
                       </th>
-                      <th className="text-white text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
+                      <th className=" text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
                         Name
                       </th>
-                      <th className="text-white text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
+                      <th className=" text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
                         Email
                       </th>
-                      <th className="text-white text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
+                      <th className=" text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
                         Status
                       </th>
-                      <th className="text-white text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
+                      <th className=" text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
                         Register Date
                       </th>
-                      <th className="text-white text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
+                      <th className=" text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
                         Transfer fund
                       </th>
                     </tr>
@@ -309,21 +309,21 @@ export default function DirectPage(): JSX.Element {
                           }`}
                           onClick={() => handleRowClick(row)}
                         >
-                          <td className="text-white text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                          <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
                             {row.no}
                           </td>
-                          <td className="text-white text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                          <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
                             {row.name}
                           </td>
-                          <td className="text-white text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                          <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
                             {row.email || "No email"}
                           </td>
                           <td className="py-3 lg:py-4 px-3 lg:px-6 text-center">
                             <StatusBadge status={row.status} />
                           </td>
-                          <td className="text-white text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                          <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
                             <div className="space-y-1">
-                              <div className="text-white text-sm lg:text-base text-center">
+                              <div className=" text-sm lg:text-base text-center">
                                 {date} {time}
                               </div>
                             </div>
@@ -358,8 +358,8 @@ export default function DirectPage(): JSX.Element {
                         onClick={() => handlePageChange(page)}
                         className={`w-8 h-8 sm:w-10 sm:h-10 !rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
                           page === currentPage
-                            ? "!bg-gradient-to-r from-[#9058FE] to-[#563598] !text-white shadow-lg transform scale-105"
-                            : "bg-transparent border-2 border-[#9058FE] !text-gray-300 hover:!text-white"
+                            ? "!bg-gradient-to-r from-[#9058FE] to-[#563598] ! shadow-lg transform scale-105"
+                            : "bg-transparent border-2 border-[#9058FE] !text-gray-300 hover:!"
                         }`}
                       >
                         {page}
@@ -367,7 +367,7 @@ export default function DirectPage(): JSX.Element {
                     ))}
 
                     {currentPage < totalPages && (
-                      <Button className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full bg-transparent border-2 border-[#9058FE] text-gray-300 hover:bg-gray-500/60 hover:text-white transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer">
+                      <Button className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full bg-transparent border-2 border-[#9058FE] text-gray-300 hover:bg-gray-500/60 hover: transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer">
                         <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
                     )}

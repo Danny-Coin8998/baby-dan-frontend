@@ -125,7 +125,7 @@ export default function TransferPage() {
     <>
       <div className="w-full space-y-4 sm:space-y-6 sm:px-4">
         <div className="mb-3 sm:mb-4 md:mb-6">
-          <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
+          <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
             Transfer DAN
             <Image
               src={MoneyIcon}
@@ -149,10 +149,10 @@ export default function TransferPage() {
                 boxShadow: "0px 0px 15px 0px #9058FE",
               }}
             >
-              <h3 className="text-white text-lg sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2">
+              <h3 className=" text-lg sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2">
                 Account Balance
               </h3>
-              <p className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold">
+              <p className=" text-2xl sm:text-3xl md:text-4xl font-semibold">
                 {balanceLoading
                   ? "Loading..."
                   : balance
@@ -212,7 +212,7 @@ export default function TransferPage() {
                     transferLoading
                   }
                   size="lg"
-                  className="bg-[#9058FE] text-white py-3 px-6 sm:py-4 sm:px-8 md:py-5 md:px-10 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-2xl sm:rounded-3xl border-0 shadow-lg w-full sm:w-auto cursor-pointer h-12 sm:h-14 md:h-16 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#9058FE]  py-3 px-6 sm:py-4 sm:px-8 md:py-5 md:px-10 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-2xl sm:rounded-3xl border-0 shadow-lg w-full sm:w-auto cursor-pointer h-12 sm:h-14 md:h-16 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isProcessingTransfer || transferLoading ? (
                     <>

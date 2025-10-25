@@ -21,7 +21,7 @@ import MoneyIcon from "@/images/icons/money.png";
 
 const sidebarItems = [
   { icon: DashboardIcon, label: "Dashboard", href: "/" },
-  { icon: DepositIcon, label: "Make a deposit", href: "/deposit" },
+  // { icon: DepositIcon, label: "Make a deposit", href: "/deposit" },
   { icon: PackageIcon, label: "Buy a package", href: "/package" },
   { icon: MoneyIcon, label: "Transfer fund", href: "/transfer" },
   { icon: InvestmentIcon, label: "My Investment", href: "/investment" },
@@ -49,6 +49,12 @@ export function AppSidebar({ className }: AppSidebarProps) {
     setIsMobileMenuOpen(false);
   };
 
+  const closeMobileMenu = () => {
+    if (window.innerWidth < 1024) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   return (
     <>
       {/* Mobile Menu Button */}
@@ -57,12 +63,12 @@ export function AppSidebar({ className }: AppSidebarProps) {
           variant="outline"
           size="icon"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="bg-slate-900 border-slate-700 text-white hover:bg-slate-800"
+          className="bg-white shadow-lg border-amber-200 hover:bg-amber-50 hover:shadow-xl transition-all duration-200"
         >
           {isMobileMenuOpen ? (
-            <X className="h-5 w-5" />
+            <X className="h-5 w-5 text-amber-700" />
           ) : (
-            <Menu className="h-5 w-5" />
+            <Menu className="h-5 w-5 text-amber-700" />
           )}
         </Button>
       </div>
@@ -70,7 +76,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
       {/* Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-0 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300"
           onClick={handleOverlayClick}
         />
       )}
@@ -78,7 +84,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
       {/* Sidebar */}
       <div
         className={cn(
-          "flex h-screen w-64 flex-col bg-slate-900 transition-transform duration-300 ease-in-out",
+          "flex h-screen w-72 flex-col bg-gradient-to-b from-amber-50/30 to-white border-r border-amber-200/50 transition-transform duration-300 ease-in-out shadow-xl",
           "lg:translate-x-0 lg:relative lg:z-auto",
           "fixed z-50 lg:static",
           isMobileMenuOpen
@@ -87,51 +93,89 @@ export function AppSidebar({ className }: AppSidebarProps) {
           className
         )}
       >
-        {/* Logo */}
-        <div className="flex h-30 items-center px-4">
-          <div className="flex items-center space-x-10">
+        {/* Logo Section */}
+        <div className="flex items-center justify-between px-6 py-6 border-b border-amber-200/50 bg-white/80 backdrop-blur-sm">
+          <div className="flex items-center gap-3">
             <Image
               src="/babydan-logo.png"
               alt="DAN BINARY Logo"
-              width={140}
-              height={75}
-              className="object-contain w-1/2 h-auto mx-auto"
+              width={120}
+              height={60}
+              className="object-contain"
             />
-            <ChevronsUpDown className="h-4 w-4 text-white ml-4" />
           </div>
+          <ChevronsUpDown className="h-5 w-5 text-amber-500 transition-transform hover:scale-110" />
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 flex flex-col gap-4 px-3 py-4">
-          {sidebarItems.map((item, index) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link key={item.href} href={item.href}>
-                <Button
-                  variant="ghost"
-                  className={cn(
-                    "w-full justify-start text-white hover:text-white hover:bg-slate-800 text-xl font-normal",
-                    isActive && "bg-[#333966] text-white"
-                  )}
-                  onClick={() => {
-                    if (window.innerWidth < 1024) {
-                      setIsMobileMenuOpen(false);
-                    }
-                  }}
-                >
-                  <Image
-                    src={item.icon}
-                    alt={`${item.label} icon`}
-                    width={20}
-                    height={20}
-                    className="mr-3 object-contain"
-                  />
-                  {item.label}
-                </Button>
-              </Link>
-            );
-          })}
+        <nav className="flex-1 overflow-y-auto px-4 py-6">
+          <div className="flex flex-col gap-2">
+            {sidebarItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link key={item.href} href={item.href}>
+                  <div
+                    className={cn(
+                      "group relative flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200 cursor-pointer",
+                      isActive
+                        ? "bg-gradient-to-r from-amber-50 to-yellow-50 shadow-md border border-amber-200"
+                        : "hover:bg-white hover:shadow-md hover:scale-[1.02] border border-transparent"
+                    )}
+                    onClick={closeMobileMenu}
+                  >
+                    {/* Active Indicator */}
+                    {isActive && (
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-amber-500 to-yellow-600 rounded-r-full" />
+                    )}
+
+                    {/* Icon */}
+                    <div
+                      className={cn(
+                        "flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200",
+                        isActive
+                          ? "bg-gradient-to-br from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/30"
+                          : "bg-gray-100 group-hover:bg-gradient-to-br group-hover:from-amber-400 group-hover:to-yellow-500 group-hover:shadow-md group-hover:shadow-amber-500/20"
+                      )}
+                    >
+                      <Image
+                        src={item.icon}
+                        alt={`${item.label} icon`}
+                        width={20}
+                        height={20}
+                        className={cn(
+                          "object-contain transition-all duration-200",
+                          isActive
+                            ? "brightness-0 invert"
+                            : "opacity-60 group-hover:brightness-0 group-hover:invert"
+                        )}
+                      />
+                    </div>
+
+                    {/* Label */}
+                    <span
+                      className={cn(
+                        "text-base font-medium transition-colors duration-200",
+                        isActive
+                          ? "text-gray-900"
+                          : "text-gray-600 group-hover:text-gray-900"
+                      )}
+                    >
+                      {item.label}
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </nav>
+
+        {/* Footer */}
+        <div className="px-6 py-4 border-t border-amber-200/50 bg-white/80 backdrop-blur-sm">
+          <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-sm font-medium text-gray-700">System Online</span>
+          </div>
+        </div>
       </div>
     </>
   );

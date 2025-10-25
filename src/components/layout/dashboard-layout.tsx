@@ -18,7 +18,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   // Render with dashboard layout for protected routes
   return (
-    <div className="flex h-screen bg-slate-900">
+    <div className="flex h-screen bg-white">
       <AppSidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />

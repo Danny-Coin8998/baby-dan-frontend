@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRegister } from "@/store/register";
-import BG from "@/images/Background.png";
 
 function RegisterForm() {
   const router = useRouter();
@@ -102,14 +101,13 @@ function RegisterForm() {
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src={BG}
+          src="/background.jpg"
           alt="Background"
           fill
           className="object-cover"
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#7C27BF] to-[#263450] mix-blend-hue" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-lg">
@@ -126,7 +124,7 @@ function RegisterForm() {
 
         <Card className="bg-transparent w-full max-w-md min-h-[500px] border-white/44 backdrop-blur-sm rounded-2xl shadow-xl">
           <CardHeader>
-            <CardTitle className="text-center text-white text-4xl">
+            <CardTitle className="text-center  text-4xl">
               Register
             </CardTitle>
           </CardHeader>
@@ -150,14 +148,14 @@ function RegisterForm() {
               {/* Ref Code (if present) */}
               {formData.ref && (
                 <div className="space-y-2">
-                  <label className="text-white text-sm font-medium">
+                  <label className=" text-sm font-medium">
                     Referral Code
                   </label>
                   <Input
                     type="text"
                     value={formData.ref}
                     disabled
-                    className="bg-white/10 border-white/30 text-white placeholder:text-white/60"
+                    className="bg-white/10 border-white/30  placeholder:/60"
                   />
                 </div>
               )}
@@ -165,19 +163,19 @@ function RegisterForm() {
               {/* Side (if present) */}
               {formData.side && (
                 <div className="space-y-2">
-                  <label className="text-white text-sm font-medium">Side</label>
+                  <label className=" text-sm font-medium">Side</label>
                   <Input
                     type="text"
                     value={formData.side}
                     disabled
-                    className="bg-white/10 border-white/30 text-white placeholder:text-white/60"
+                    className="bg-white/10 border-white/30  placeholder:/60"
                   />
                 </div>
               )}
 
               {/* First Name */}
               <div className="space-y-2">
-                <label className="text-white text-sm font-medium">
+                <label className=" text-sm font-medium">
                   First Name *
                 </label>
                 <Input
@@ -187,14 +185,14 @@ function RegisterForm() {
                     handleInputChange("firstname", e.target.value)
                   }
                   placeholder="Enter your first name"
-                  className="bg-white/10 border-white/30 text-white placeholder:text-white/60 focus:border-white/60"
+                  className="bg-white/10 border-white/30  placeholder:/60 focus:border-white/60"
                   required
                 />
               </div>
 
               {/* Last Name */}
               <div className="space-y-2">
-                <label className="text-white text-sm font-medium">
+                <label className=" text-sm font-medium">
                   Last Name *
                 </label>
                 <Input
@@ -204,14 +202,14 @@ function RegisterForm() {
                     handleInputChange("lastname", e.target.value)
                   }
                   placeholder="Enter your last name"
-                  className="bg-white/10 border-white/30 text-white placeholder:text-white/60 focus:border-white/60"
+                  className="bg-white/10 border-white/30  placeholder:/60 focus:border-white/60"
                   required
                 />
               </div>
 
               {/* Wallet Address */}
               <div className="space-y-2">
-                <label className="text-white text-sm font-medium">
+                <label className=" text-sm font-medium">
                   Wallet Address *
                 </label>
                 <Input
@@ -221,7 +219,7 @@ function RegisterForm() {
                     handleInputChange("wallet_address", e.target.value)
                   }
                   placeholder="Enter your wallet address"
-                  className="bg-white/10 border-white/30 text-white placeholder:text-white/60 focus:border-white/60"
+                  className="bg-white/10 border-white/30  placeholder:/60 focus:border-white/60"
                   required
                 />
               </div>
@@ -230,7 +228,7 @@ function RegisterForm() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-12 bg-white border-2 border-[#9058FE] text-[#9058FE] font-medium text-lg rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full h-12 bg-white border-2 border-yellow-500 text-yellow-500 font-medium text-lg rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:bg-yellow-500/25 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isLoading ? "Creating Account..." : "Register"}
               </Button>
@@ -240,7 +238,7 @@ function RegisterForm() {
                 <button
                   type="button"
                   onClick={() => router.push("/login")}
-                  className="text-white/80 hover:text-white text-sm underline transition-colors"
+                  className="/80 hover: text-sm underline transition-colors"
                 >
                   Already have an account? Login here
                 </button>
@@ -260,7 +258,7 @@ export default function RegisterPage() {
         <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              src={BG}
+              src="/background.jpg"
               alt="Background"
               fill
               className="object-cover"
@@ -270,7 +268,7 @@ export default function RegisterPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#7C27BF] to-[#263450] mix-blend-hue" />
           </div>
           <div className="relative z-10 flex items-center justify-center">
-            <div className="text-white text-xl">Loading...</div>
+            <div className=" text-xl">Loading...</div>
           </div>
         </div>
       }
