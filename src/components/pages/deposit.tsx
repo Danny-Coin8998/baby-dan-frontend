@@ -149,7 +149,7 @@ export default function DepositPage() {
           </CardContent>
           <CardFooter>
             <Button
-              className="w-full bg-purple-600 hover:bg-purple-700  py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
+              className="w-full bg-yellow-600 hover:bg-yellow-700  py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
               onClick={handleDeposit}
               disabled={isLoading || !depositAmount}
             >

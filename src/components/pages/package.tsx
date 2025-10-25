@@ -111,17 +111,6 @@ export default function PackagePage() {
       return;
     }
 
-    if (!selectedPkg.can_afford) {
-      Swal.fire({
-        icon: "error",
-        title: "Insufficient Balance",
-        text: "You do not have enough balance to buy this package",
-        confirmButtonColor: "#9058FE",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
-
     // Show confirmation dialog
     const result = await Swal.fire({
       title: "Confirm Investment",
@@ -171,16 +160,7 @@ export default function PackagePage() {
   };
 
   // Helper function to get package colors based on amount
-  const getPackageColors = (amount: number, canAfford: boolean) => {
-    if (!canAfford) {
-      return {
-        bgColor: "bg-gray-600",
-        textColor: "text-gray-300",
-        amountColor: "text-gray-300",
-        borderColor: "#6B7280", // gray-500
-      };
-    }
-
+  const getPackageColors = (amount: number) => {
     switch (amount) {
       case 10:
         return {
@@ -304,7 +284,7 @@ export default function PackagePage() {
                 <Button
                   onClick={handlePrevious}
                   disabled={!packages || currentIndex === 0}
-                  className="bg-white/80 hover:bg-white/30  border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
+                  className="shadow-lg bg-white/80 hover:bg-white/30  border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
                 >
                   <ChevronLeft
                     style={{ width: "35px", height: "35px" }}
@@ -317,30 +297,21 @@ export default function PackagePage() {
                     packages
                       .slice(currentIndex, currentIndex + cardsToShow)
                       .map((pkg: PackageItem) => {
-                        const colors = getPackageColors(
-                          pkg.p_amount,
-                          pkg.can_afford
-                        );
+                        const colors = getPackageColors(pkg.p_amount);
                         const isSelected = selectedPackage === pkg.p_id;
 
                         return (
                           <div key={pkg.p_id} className="relative">
                             <div
-                              onClick={() =>
-                                pkg.can_afford && setSelectedPackage(pkg.p_id)
-                              }
+                              onClick={() => setSelectedPackage(pkg.p_id)}
                               className={`${
                                 colors.bgColor
-                              } rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-300 min-w-[110px] sm:min-w-[150px] md:min-w-[180px] flex-1 max-w-[150px] sm:max-w-[180px] md:max-w-[250px] relative overflow-hidden border-6 h-[180px] sm:h-[200px] md:h-[220px] flex flex-col justify-center ${
+                              } rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-300 min-w-[110px] sm:min-w-[150px] md:min-w-[180px] flex-1 max-w-[150px] sm:max-w-[180px] md:max-w-[250px] relative overflow-hidden border-6 h-[180px] sm:h-[200px] md:h-[220px] flex flex-col justify-center cursor-pointer hover:scale-105 ${
                                 isSelected ? "shadow-lg scale-105 pb-8" : ""
-                              } ${
-                                pkg.can_afford
-                                  ? "cursor-pointer hover:scale-105"
-                                  : "cursor-not-allowed opacity-60"
                               }`}
                               style={{
                                 borderColor: isSelected
-                                  ? "#9058FE"
+                                  ? "#FFD700"
                                   : colors.borderColor,
                               }}
                             >
@@ -352,27 +323,22 @@ export default function PackagePage() {
                                   {/* {pkg.required_dan.toFixed(2)} DAN */}
                                   {pkg.p_name}
                                 </div>
-                                <div className="text-gray-400 text-xs sm:text-sm md:text-lg opacity-80">
+                                {/* <div className="text-gray-400 text-xs sm:text-sm md:text-lg opacity-80">
                                   ({pkg.p_name})
-                                </div>
+                                </div> */}
                                 <div
                                   className={`${colors.textColor} text-xs sm:text-sm md:text-lg opacity-80`}
                                 >
                                   {pkg.p_percent}% for {pkg.p_period} days
                                 </div>
-                                {!pkg.can_afford && (
-                                  <div className="text-red-400 text-xs mt-1 font-medium">
-                                    Insufficient Balance
-                                  </div>
-                                )}
                               </div>
                             </div>
 
-                            {isSelected && pkg.can_afford && (
+                            {isSelected && (
                               <div
                                 className="absolute bottom-0 left-0 right-0 text-center py-1"
                                 style={{
-                                  backgroundColor: "#9058FE",
+                                  backgroundColor: "#FFD700",
                                   marginTop: "-1px",
                                 }}
                               >
@@ -395,9 +361,9 @@ export default function PackagePage() {
                   disabled={
                     !packages || currentIndex >= packages.length - cardsToShow
                   }
-                  className="bg-white/80 hover:bg-white/30  border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
+                  className="shadow-lg bg-white/80 hover:bg-white/30  border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
                 >
-                  <ChevronRight style={{ width: "35px", height: "35px" }} />
+                  <ChevronRight style={{ width: "35px", height: "35px" }} className="text-black" />
                 </Button>
               </>
             )}
@@ -458,17 +424,11 @@ export default function PackagePage() {
 
         {/* Invest Button */}
         {canInvest && (
-          <div className="flex justify-start">
+          <div className="flex justify-center">
             <Button
               onClick={handleInvest}
-              disabled={
-                !packages ||
-                !packages.find(
-                  (pkg: PackageItem) => pkg.p_id === selectedPackage
-                )?.can_afford ||
-                buyingPackage
-              }
-              className="bg-[#9058FE]  px-8 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-medium rounded-2xl border-none shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-500"
+              disabled={buyingPackage}
+              className="bg-yellow-500 hover:bg-yellow-600/40 px-8 sm:px-12 py-8 sm:py-6 text-lg sm:text-xl font-medium rounded-2xl border-none shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-500"
               style={{
                 boxShadow: "3px 0px 4px 0px #00000040",
               }}

@@ -290,7 +290,7 @@ export default function TeamPage() {
                   {teamData.total_referrals}
                 </p>
               </div>
-              <div className="p-3 bg-purple-600/10 rounded-xl group-hover:bg-purple-600/20 transition-colors">
+              <div className="p-3 bg-yellow-500/10 rounded-xl group-hover:bg-yellow-600/20 transition-colors">
                 <TrendingUp className="w-6 h-6 text-purple-400" />
               </div>
             </div>

@@ -57,7 +57,7 @@ export default function WithdrawPage() {
       return;
     }
 
-    if (balance && amount > balance.dan_balance) {
+    if (balance && amount > balance.baby_dan_balance) {
       setWithdrawError("Insufficient balance for withdrawal");
       return;
     }
@@ -186,9 +186,9 @@ export default function WithdrawPage() {
             <div
               className="rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center backdrop-blur-sm"
               style={{
-                background: "#9058FE",
+                background: "linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 235, 0.85) 60%, rgba(255, 240, 214, 0.9) 100%)",
                 backdropFilter: "blur(20px)",
-                boxShadow: "0px 0px 15px 0px #9058FE",
+                boxShadow: "0px 0px 5px 0px #FFD700",
               }}
             >
               <h3 className=" text-lg sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2">
@@ -198,8 +198,8 @@ export default function WithdrawPage() {
                 {balanceLoading
                   ? "Loading..."
                   : balance
-                  ? `${balance.dan_balance.toLocaleString()} DAN`
-                  : "0 DAN"}
+                  ? `${balance.baby_dan_balance.toLocaleString()} BBD`
+                  : "0 BBD "}
               </p>
             </div>
             {/* <div
@@ -219,7 +219,7 @@ export default function WithdrawPage() {
             </div> */}
           </div>
 
-          <div className="bg-gray-300 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6">
+          <div className=" rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6">
             <h2 className="text-gray-800 text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
               Withdraw fund
               <Image
@@ -249,7 +249,7 @@ export default function WithdrawPage() {
 
               <div>
                 <label className="block text-gray-800 font-medium mb-2 sm:mb-3 text-sm sm:text-base">
-                  Withdrawal amount (DAN)
+                  Withdrawal amount (BBD)
                 </label>
                 <Input
                   type="number"

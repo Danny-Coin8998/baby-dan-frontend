@@ -23,7 +23,7 @@ const sidebarItems = [
   { icon: DashboardIcon, label: "Dashboard", href: "/" },
   // { icon: DepositIcon, label: "Make a deposit", href: "/deposit" },
   { icon: PackageIcon, label: "Buy a package", href: "/package" },
-  { icon: MoneyIcon, label: "Transfer fund", href: "/transfer" },
+  { icon: MoneyIcon, label: "transfer Baby Dan", href: "/transfer" },
   { icon: InvestmentIcon, label: "My Investment", href: "/investment" },
   { icon: WithdrawIcon, label: "Withdraw fund", href: "/withdraw" },
   { icon: LinkingIcon, label: "Referral Link", href: "/referral" },
