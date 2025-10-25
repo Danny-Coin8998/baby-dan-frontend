@@ -54,7 +54,7 @@ export default function SettingPage() {
   return (
     <>
       <div className="mb-3 sm:mb-4 md:mb-6">
-        <h1 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold flex items-baseline gap-2 sm:gap-3 md:gap-4">
+        <h1 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold flex items-baseline gap-2 sm:gap-3 md:gap-4">
           Setting
           <Image
             src={Setting}
@@ -96,7 +96,7 @@ export default function SettingPage() {
               className="object-contain rounded-full w-full h-full"
             />
           </div>
-          <div className="text-white">
+          <div className="">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-1">
               {loading
                 ? "Loading..."
@@ -177,7 +177,7 @@ export default function SettingPage() {
                     !personalInfo.firstname.trim() ||
                     !personalInfo.lastname.trim()
                   }
-                  className="w-24 sm:w-28 md:w-32 bg-[#9058FE] text-white py-2 sm:py-2 md:py-3 px-3 sm:px-4 md:px-6 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-xs sm:text-sm md:text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-24 sm:w-28 md:w-32 bg-[#9058FE]  py-2 sm:py-2 md:py-3 px-3 sm:px-4 md:px-6 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-xs sm:text-sm md:text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {updating ? "Updating..." : "Update"}
                 </Button>
@@ -231,7 +231,7 @@ export default function SettingPage() {
               <div className="flex justify-center pt-2 sm:pt-3 md:pt-4">
                 <Button
                   onClick={handlePasswordUpdate}
-                  className="w-24 sm:w-28 md:w-32 bg-[#9058FE] text-white py-2 sm:py-2 md:py-3 px-3 sm:px-4 md:px-6 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-xs sm:text-sm md:text-base cursor-pointer"
+                  className="w-24 sm:w-28 md:w-32 bg-[#9058FE]  py-2 sm:py-2 md:py-3 px-3 sm:px-4 md:px-6 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-xs sm:text-sm md:text-base cursor-pointer"
                 >
                   Update
                 </Button>

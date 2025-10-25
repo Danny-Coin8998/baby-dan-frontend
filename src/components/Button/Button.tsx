@@ -32,13 +32,13 @@ const Button: React.FC<ButtonProps> = ({
 
   const variants: Record<ButtonVariant, string> = {
     primary:
-      "bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500",
+      "bg-purple-600  hover:bg-purple-700 focus:ring-purple-500",
     secondary:
-      "bg-slate-600 text-white hover:bg-slate-700 focus:ring-slate-500",
+      "bg-slate-600  hover:bg-slate-700 focus:ring-slate-500",
     outline:
-      "border border-slate-600 bg-slate-700 text-white hover:bg-slate-600 focus:ring-slate-500",
-    ghost: "text-white hover:bg-slate-700 focus:ring-slate-500",
-    destructive: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
+      "border border-slate-600 bg-slate-700  hover:bg-slate-600 focus:ring-slate-500",
+    ghost: " hover:bg-slate-700 focus:ring-slate-500",
+    destructive: "bg-red-600  hover:bg-red-700 focus:ring-red-500",
   };
 
   const sizes: Record<ButtonSize, string> = {

@@ -185,64 +185,64 @@ export default function PackagePage() {
       case 10:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#3B82F6", // blue-500
         };
       case 100:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#10B981", // green-500
         };
       case 300:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#F97316", // orange-500
         };
       case 500:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#EF4444", // purple-500
         };
       case 1000:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#FFD700", // red-500
         };
       case 3000:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#6366F1", // indigo-500
         };
       case 5000:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#EC4899", // pink-500
         };
       case 10000:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#EAB308", // yellow-500
         };
       default:
         return {
           bgColor: "bg-white/10",
-          textColor: "text-white",
-          amountColor: "text-white",
+          textColor: "",
+          amountColor: "",
           borderColor: "#6B7280", // gray-500
         };
     }
@@ -251,7 +251,7 @@ export default function PackagePage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">Loading packages...</div>
+        <div className=" text-xl">Loading packages...</div>
       </div>
     );
   }
@@ -267,7 +267,7 @@ export default function PackagePage() {
   return (
     <>
       <div className="mb-4 md:mb-6">
-        <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
+        <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
           Buy a package
           <Image
             src={PackageIcon}
@@ -284,7 +284,7 @@ export default function PackagePage() {
       {/* Main Package */}
       <div className="dashboard-gradient rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl">
         <div className="text-center mb-8">
-          <h2 className="text-white text-xl sm:text-2xl md:text-5xl font-normal flex items-center justify-center gap-3">
+          <h2 className=" text-xl sm:text-2xl md:text-5xl font-normal flex items-center justify-center gap-3">
             Select a package
             <Image
               src={SelectPackage}
@@ -304,7 +304,7 @@ export default function PackagePage() {
                 <Button
                   onClick={handlePrevious}
                   disabled={!packages || currentIndex === 0}
-                  className="bg-white/80 hover:bg-white/30 text-white border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
+                  className="bg-white/80 hover:bg-white/30  border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
                 >
                   <ChevronLeft
                     style={{ width: "35px", height: "35px" }}
@@ -376,7 +376,7 @@ export default function PackagePage() {
                                   marginTop: "-1px",
                                 }}
                               >
-                                <span className="text-white text-xs font-medium">
+                                <span className=" text-xs font-medium">
                                   Selected
                                 </span>
                               </div>
@@ -385,7 +385,7 @@ export default function PackagePage() {
                         );
                       })
                   ) : (
-                    <div className="text-white text-center col-span-3">
+                    <div className=" text-center col-span-3">
                       No packages available
                     </div>
                   )}
@@ -395,7 +395,7 @@ export default function PackagePage() {
                   disabled={
                     !packages || currentIndex >= packages.length - cardsToShow
                   }
-                  className="bg-white/80 hover:bg-white/30 text-white border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
+                  className="bg-white/80 hover:bg-white/30  border-none p-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
                 >
                   <ChevronRight style={{ width: "35px", height: "35px" }} />
                 </Button>
@@ -407,7 +407,7 @@ export default function PackagePage() {
         {/* Invest by */}
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <h3 className="text-white text-lg sm:text-3xl font-medium flex items-center gap-2 md:gap-2">
+            <h3 className=" text-lg sm:text-3xl font-medium flex items-center gap-2 md:gap-2">
               Invest by
               <Image
                 src={Dollar}
@@ -440,16 +440,16 @@ export default function PackagePage() {
                   />
                   <label
                     htmlFor={account.id}
-                    className="text-white font-medium cursor-pointer flex-1 flex items-center gap-2"
+                    className=" font-medium cursor-pointer flex-1 flex items-center gap-2"
                   >
                     {account.label}
-                    <span className="text-white/70">{account.value}</span>
+                    <span className="/70">{account.value}</span>
                   </label>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-white text-center">
+            <div className=" text-center">
               You cannot invest right now the pool was empty please contact
               admin
             </div>
@@ -468,7 +468,7 @@ export default function PackagePage() {
                 )?.can_afford ||
                 buyingPackage
               }
-              className="bg-[#9058FE] text-white px-8 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-medium rounded-2xl border-none shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-500"
+              className="bg-[#9058FE]  px-8 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-medium rounded-2xl border-none shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-500"
               style={{
                 boxShadow: "3px 0px 4px 0px #00000040",
               }}

@@ -29,19 +29,19 @@ export function Header() {
         <Button
           variant="outline"
           size="sm"
-          className="rounded-xl bg-transparent text-white font-normal"
+          className="rounded-xl bg-transparent  font-normal"
         >
           Dashboard <LayoutDashboard className="fill-white" />
         </Button>
         <Button
           variant="outline"
           size="sm"
-          className="rounded-xl bg-transparent text-white font-normal"
+          className="rounded-xl bg-transparent  font-normal"
           onClick={handleLogout}
           disabled={isLoading || isLoggingOut}
         >
           {isLoggingOut ? "Logging out..." : "Logout"}{" "}
-          <LogOut className="text-white" />
+          <LogOut className="" />
         </Button>
       </div>
     </header>

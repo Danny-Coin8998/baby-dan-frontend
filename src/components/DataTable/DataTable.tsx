@@ -90,11 +90,11 @@
 //       {showHeader && title && (
 //         <div className="space-y-2">
 //           <div className="flex items-center gap-3">
-//             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+//             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold ">
 //               {title}
 //             </h1>
 //             {IconComponent && (
-//               <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+//               <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 " />
 //             )}
 //           </div>
 //           <div className="h-px bg-gray-500" />
@@ -143,7 +143,7 @@
 //                     {columns.map((column, colIndex) => (
 //                       <td
 //                         key={colIndex}
-//                         className={`text-white py-4 px-6 ${
+//                         className={` py-4 px-6 ${
 //                           column.align === "center"
 //                             ? "text-center"
 //                             : column.align === "right"
@@ -173,8 +173,8 @@
 //                   onClick={() => handlePageChange(page)}
 //                   className={`w-10 h-10 rounded-full text-sm font-medium transition-all duration-200 ${
 //                     page === currentPage
-//                       ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-lg transform scale-105"
-//                       : "bg-gray-600/40 text-gray-300 hover:bg-gray-500/60 hover:text-white"
+//                       ? "bg-gradient-to-r from-purple-500 to-purple-600  shadow-lg transform scale-105"
+//                       : "bg-gray-600/40 text-gray-300 hover:bg-gray-500/60 hover:"
 //                   }`}
 //                 >
 //                   {page}
@@ -184,7 +184,7 @@
 //               {currentPage < totalPages && (
 //                 <button
 //                   onClick={() => handlePageChange(currentPage + 1)}
-//                   className="w-10 h-10 rounded-full bg-gray-600/40 text-gray-300 hover:bg-gray-500/60 hover:text-white transition-all duration-200 flex items-center justify-center ml-1"
+//                   className="w-10 h-10 rounded-full bg-gray-600/40 text-gray-300 hover:bg-gray-500/60 hover: transition-all duration-200 flex items-center justify-center ml-1"
 //                 >
 //                   <ChevronRight className="h-4 w-4" />
 //                 </button>

@@ -30,7 +30,7 @@ export default function ReferralPage() {
     return (
       <>
         <div className="mb-4 md:mb-6">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
+          <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
             Referral Link
             <Image
               src={MoneyIcon}
@@ -49,7 +49,7 @@ export default function ReferralPage() {
             <p className="text-red-400 mb-4">{error}</p>
             <Button
               onClick={fetchReferralData}
-              className="bg-[#9058FE] text-white hover:bg-[#7c4ae8]"
+              className="bg-[#9058FE]  hover:bg-[#7c4ae8]"
             >
               Retry
             </Button>
@@ -62,7 +62,7 @@ export default function ReferralPage() {
   return (
     <>
       <div className="mb-4 md:mb-6">
-        <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
+        <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
           Referral Link
           <Image
             src={MoneyIcon}
@@ -97,7 +97,7 @@ export default function ReferralPage() {
                 <Button
                   onClick={() => handleCopyLink(leftSideLink)}
                   disabled={loading || !leftSideLink}
-                  className="absolute right-0 top-0 bottom-0 bg-[#9058FE] text-white px-2 sm:px-3 md:px-4 font-medium text-xs sm:text-sm rounded-l-none rounded-r-3xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="absolute right-0 top-0 bottom-0 bg-[#9058FE]  px-2 sm:px-3 md:px-4 font-medium text-xs sm:text-sm rounded-l-none rounded-r-3xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="hidden sm:inline">
                     {copiedLink === leftSideLink ? "Copied!" : "Copy Link"}
@@ -122,7 +122,7 @@ export default function ReferralPage() {
                 <Button
                   onClick={() => handleCopyLink(rightSideLink)}
                   disabled={loading || !rightSideLink}
-                  className="absolute right-0 top-0 bottom-0 bg-[#9058FE] text-white px-2 sm:px-3 md:px-4 font-medium text-xs sm:text-sm rounded-l-none rounded-r-3xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="absolute right-0 top-0 bottom-0 bg-[#9058FE]  px-2 sm:px-3 md:px-4 font-medium text-xs sm:text-sm rounded-l-none rounded-r-3xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="hidden sm:inline">
                     {copiedLink === rightSideLink ? "Copied!" : "Copy Link"}

@@ -97,23 +97,23 @@ export default function LoginPage() {
 
           {isAuthenticated && jwtToken && (
             <div className="text-black text-center mb-6 space-y-2">
-              <div className="text-sm text-white/80">
+              <div className="text-sm /80">
                 Authentication Status:
               </div>
               <div className="text-lg font-semibold text-green-400">
                 ✓ Logged In Successfully
               </div>
-              <div className="text-xs text-white/60">
+              <div className="text-xs /60">
                 User ID: {user?.userid || "N/A"}
               </div>
-              <div className="text-xs text-white/60">
+              <div className="text-xs /60">
                 Wallet: {user?.wallet_address?.substring(0, 10)}...
               </div>
             </div>
           )}
 
           {connectedAddress && !isAuthenticated && (
-            <div className="text-white text-center mb-6 space-y-2">
+            <div className=" text-center mb-6 space-y-2">
               <div className="text-sm text-black/80">Wallet Connected:</div>
               <div className="break-words text-lg font-mono bg-white/10 p-2 rounded text-black">
                 {connectedAddress}

@@ -83,7 +83,7 @@ export default function DepositPage() {
   return (
     <div className="flex-1 flex flex-col">
       <div className="mb-4 md:mb-6">
-        <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-center gap-2 md:gap-4">
+        <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold flex items-center gap-2 md:gap-4">
           <Image
             src={MoneyIcon}
             alt="Deposit"
@@ -98,7 +98,7 @@ export default function DepositPage() {
       <Separator className="bg-white/20 h-px mb-6 md:mb-8" />
 
       <div className="flex-1 flex items-center justify-center">
-        <Card className="w-full max-w-xl bg-white/10 border-white/20 text-white shadow-lg backdrop-blur-sm">
+        <Card className="w-full max-w-xl bg-white/10 border-white/20  shadow-lg backdrop-blur-sm">
           <CardHeader className="flex flex-col items-center justify-center">
             <Image
               src="/dancoin.png"
@@ -125,7 +125,7 @@ export default function DepositPage() {
                 value={depositAmount}
                 onChange={(e) => setDepositAmount(e.target.value)}
                 disabled={isLoading}
-                className="bg-black/20 border-white/20 text-white pl-12 text-lg focus:ring-2 focus:ring-offset-0 focus:ring-purple-500 transition-shadow duration-300 disabled:opacity-50"
+                className="bg-black/20 border-white/20  pl-12 text-lg focus:ring-2 focus:ring-offset-0 focus:ring-purple-500 transition-shadow duration-300 disabled:opacity-50"
               />
             </div>
 
@@ -149,7 +149,7 @@ export default function DepositPage() {
           </CardContent>
           <CardFooter>
             <Button
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
+              className="w-full bg-purple-600 hover:bg-purple-700  py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
               onClick={handleDeposit}
               disabled={isLoading || !depositAmount}
             >

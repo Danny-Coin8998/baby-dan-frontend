@@ -27,7 +27,7 @@ export default function Dashboard() {
       <>
         <div className="w-full space-y-4 sm:space-y-6 sm:px-4">
           <div className="mb-3 sm:mb-4 md:mb-6">
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
+            <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
               Dashboard
               <Image
                 src={DashboardIcon}
@@ -44,7 +44,7 @@ export default function Dashboard() {
           <div className="dashboard-gradient rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl">
             <div className="space-y-6 md:space-y-8 max-w-[1400px] mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
               <div className="flex items-center justify-center h-32 sm:h-48 md:h-64">
-                <div className="text-white text-sm sm:text-base md:text-lg">
+                <div className=" text-sm sm:text-base md:text-lg">
                   Loading dashboard data...
                 </div>
               </div>
@@ -61,7 +61,7 @@ export default function Dashboard() {
       <>
         <div className="w-full space-y-4 sm:space-y-6 sm:px-4">
           <div className="mb-3 sm:mb-4 md:mb-6">
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
+            <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
               Dashboard
               <Image
                 src={DashboardIcon}
@@ -81,12 +81,12 @@ export default function Dashboard() {
                 <div className="text-red-400 text-sm sm:text-base md:text-lg mb-3 sm:mb-4">
                   Error loading dashboard data
                 </div>
-                <div className="text-white text-xs sm:text-sm mb-4 sm:mb-6 break-words">
+                <div className=" text-xs sm:text-sm mb-4 sm:mb-6 break-words">
                   {error}
                 </div>
                 <Button
                   onClick={fetchDashboard}
-                  className="bg-[#9058FE] text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-lg"
+                  className="bg-[#9058FE]  px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-lg"
                 >
                   Retry
                 </Button>
@@ -104,7 +104,7 @@ export default function Dashboard() {
       <>
         <div className="w-full space-y-4 sm:space-y-6 sm:px-4">
           <div className="mb-3 sm:mb-4 md:mb-6">
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
+            <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
               Dashboard
               <Image
                 src={DashboardIcon}
@@ -121,7 +121,7 @@ export default function Dashboard() {
           <div className="dashboard-gradient rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl">
             <div className="space-y-6 md:space-y-8 max-w-[1400px] mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
               <div className="flex items-center justify-center h-32 sm:h-48 md:h-64">
-                <div className="text-white text-sm sm:text-base md:text-lg">
+                <div className=" text-sm sm:text-base md:text-lg">
                   No data available
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function Dashboard() {
     <>
       <div className="w-full space-y-4 sm:space-y-6 sm:px-4">
         <div className="mb-3 sm:mb-4 md:mb-6">
-          <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
+          <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
             Dashboard
             <Image
               src={DashboardIcon}
@@ -248,7 +248,7 @@ export default function Dashboard() {
                 onClick={() => {
                   router.push("/deposit");
                 }}
-                className="bg-[#9058FE] text-white py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
+                className="bg-[#9058FE]  py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
                 style={{
                   boxShadow: "3px 0px 4px 0px #00000040",
                 }}
@@ -259,7 +259,7 @@ export default function Dashboard() {
                 onClick={() => {
                   router.push("/withdraw");
                 }}
-                className="bg-[#9058FE] text-white py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
+                className="bg-[#9058FE]  py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
                 style={{
                   boxShadow: "3px 0px 4px 0px #00000040",
                 }}
@@ -270,7 +270,7 @@ export default function Dashboard() {
                 onClick={() => {
                   router.push("/transfer");
                 }}
-                className="bg-[#9058FE] text-white py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
+                className="bg-[#9058FE]  py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
                 style={{
                   boxShadow: "3px 0px 4px 0px #00000040",
                 }}
@@ -281,7 +281,7 @@ export default function Dashboard() {
                 onClick={() => {
                   router.push("/setting");
                 }}
-                className="bg-[#9058FE] text-white py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
+                className="bg-[#9058FE]  py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-normal rounded-lg border-0 shadow-lg w-full cursor-pointer h-12 sm:h-14 md:h-16"
                 style={{
                   boxShadow: "3px 0px 4px 0px #00000040",
                 }}

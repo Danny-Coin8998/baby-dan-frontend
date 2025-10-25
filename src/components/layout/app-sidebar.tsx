@@ -57,7 +57,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
           variant="outline"
           size="icon"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="bg-slate-900 border-slate-700 text-white hover:bg-slate-800"
+          className="bg-slate-900 border-slate-700  hover:bg-slate-800"
         >
           {isMobileMenuOpen ? (
             <X className="h-5 w-5" />
@@ -97,7 +97,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
               height={75}
               className="object-contain w-1/2 h-auto mx-auto"
             />
-            <ChevronsUpDown className="h-4 w-4 text-white ml-4" />
+            <ChevronsUpDown className="h-4 w-4  ml-4" />
           </div>
         </div>
 
@@ -110,8 +110,8 @@ export function AppSidebar({ className }: AppSidebarProps) {
                 <Button
                   variant="ghost"
                   className={cn(
-                    "w-full justify-start text-white hover:text-white hover:bg-slate-800 text-xl font-normal",
-                    isActive && "bg-[#333966] text-white"
+                    "w-full justify-start  hover: hover:bg-slate-800 text-xl font-normal",
+                    isActive && "bg-[#333966] "
                   )}
                   onClick={() => {
                     if (window.innerWidth < 1024) {
