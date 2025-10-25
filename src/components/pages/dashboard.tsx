@@ -77,7 +77,7 @@ export default function Dashboard() {
           />
           <StatCard
             title="Active Invest"
-            value={parseFloat(balances.total_investment_active).toFixed(2)}
+            value={parseFloat(balances.total_active_usdt).toFixed(2)}
             icon={
               <Image
                 src={Invest}
@@ -114,10 +114,7 @@ export default function Dashboard() {
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          <MetricCard
-            label="Total Deposits"
-            value={balances.total_deposit}
-          />
+          <MetricCard label="Total Deposits" value={balances.total_deposit} />
           <MetricCard
             label="Total Withdrawals"
             value={balances.total_withdraw.toFixed(2)}

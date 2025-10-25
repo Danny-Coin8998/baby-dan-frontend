@@ -55,6 +55,7 @@ interface Balances {
   total_earned: string;
   total_withdraw: number;
   total_investment_active: string;
+  total_active_usdt: string;
   total_investment: string;
   total_commission: string;
   total_transfer_in: number;

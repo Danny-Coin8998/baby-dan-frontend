@@ -54,7 +54,7 @@ export default function SettingPage() {
   return (
     <>
       <div className="mb-3 sm:mb-4 md:mb-6">
-        <h1 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold flex items-baseline gap-2 sm:gap-3 md:gap-4">
+        <h1 className="text-gray-800 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold flex items-baseline gap-2 sm:gap-3 md:gap-4">
           Setting
           <Image
             src={Setting}
@@ -66,11 +66,11 @@ export default function SettingPage() {
         </h1>
       </div>
 
-      <Separator className="bg-[#989898] h-px mb-4 sm:mb-6 md:mb-8" />
+      <Separator className="bg-[#D4C5A0] h-px mb-4 sm:mb-6 md:mb-8" />
 
       {/* Error Message */}
       {error && (
-        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+        <div className="mb-4 p-4 bg-red-100 border-2 border-red-300 text-red-700 rounded-lg">
           <div className="flex justify-between items-center">
             <span>{error}</span>
             <button
@@ -84,10 +84,15 @@ export default function SettingPage() {
       )}
 
       {/* Main Container - ทุกอย่างอยู่ในกรอบเดียว */}
-      <div className="dashboard-gradient rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 shadow-2xl">
+      <div
+        className="rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 shadow-2xl border-2 border-[#E5D5B7]"
+        style={{
+          background: "linear-gradient(180deg, #FFFFFF 0%, #FFF9F0 100%)",
+        }}
+      >
         {/* Avatar Section - อยู่ด้านบนซ้ายของกรอบ */}
         <div className="flex items-center mb-8 sm:mb-10 md:mb-12">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 rounded-full border-2 md:border-3 lg:border-4 border-blue-200 bg-white p-1 shadow-lg mr-4 sm:mr-6">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 rounded-full border-2 md:border-3 lg:border-4 border-[#D4AF37] bg-white p-1 shadow-lg mr-4 sm:mr-6">
             <Image
               src={Avatar}
               alt="Avatar"
@@ -97,13 +102,13 @@ export default function SettingPage() {
             />
           </div>
           <div className="">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-1">
+            <h2 className="text-gray-800 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-1">
               {loading
                 ? "Loading..."
                 : `${personalInfo.firstname} ${personalInfo.lastname}`.trim() ||
                   "No Name"}
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl">
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">
               Wallet Address :{" "}
               {loading
                 ? "Loading..."
@@ -115,8 +120,8 @@ export default function SettingPage() {
         {/* Forms Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 justify-items-center max-w-6xl mx-auto mb-6 sm:mb-8">
           {/* Personal Information */}
-          <div className="bg-white/73 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-4xl p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 w-full max-w-xs sm:max-w-sm md:max-w-md">
-            <h3 className="text-[#3C01AF] text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 sm:mb-5 md:mb-6 lg:mb-8">
+          <div className="bg-white border-2 border-[#E5D5B7] rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-4xl p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 w-full max-w-xs sm:max-w-sm md:max-w-md shadow-lg">
+            <h3 className="text-[#D4AF37] text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 sm:mb-5 md:mb-6 lg:mb-8 font-semibold">
               Personal Information
             </h3>
             <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
@@ -135,7 +140,7 @@ export default function SettingPage() {
                       })
                     }
                     disabled={loading || updating}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-2 md:py-3 bg-white/54 border border-[#696969] rounded-full text-[#454545] text-sm sm:text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-[#6B46C1] focus:border-transparent pl-8 sm:pl-9 md:pl-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2 md:py-3 bg-white border-2 border-[#D4C5A0] rounded-full text-gray-700 text-sm sm:text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] pl-8 sm:pl-9 md:pl-10 disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder={
                       loading ? "Loading..." : "Enter your first name"
                     }
@@ -159,7 +164,7 @@ export default function SettingPage() {
                       })
                     }
                     disabled={loading || updating}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-2 md:py-3 bg-white/54 border border-[#696969] rounded-full text-[#454545] text-sm sm:text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-[#6B46C1] focus:border-transparent pl-8 sm:pl-9 md:pl-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2 md:py-3 bg-white border-2 border-[#D4C5A0] rounded-full text-gray-700 text-sm sm:text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] pl-8 sm:pl-9 md:pl-10 disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder={
                       loading ? "Loading..." : "Enter your last name"
                     }
@@ -177,7 +182,7 @@ export default function SettingPage() {
                     !personalInfo.firstname.trim() ||
                     !personalInfo.lastname.trim()
                   }
-                  className="w-24 sm:w-28 md:w-32 bg-[#9058FE]  py-2 sm:py-2 md:py-3 px-3 sm:px-4 md:px-6 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-xs sm:text-sm md:text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-24 sm:w-28 md:w-32 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-white py-2 sm:py-2 md:py-3 px-3 sm:px-4 md:px-6 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl hover:from-[#FFD700] hover:to-[#D4AF37] transform hover:scale-[1.02] text-xs sm:text-sm md:text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {updating ? "Updating..." : "Update"}
                 </Button>
