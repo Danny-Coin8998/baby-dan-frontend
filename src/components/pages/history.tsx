@@ -34,16 +34,16 @@ const StatusBadge = ({ status }: { status: string }) => {
       case "COMPLETED":
       case "SUCCESS":
       case "APPROVED":
-        return "text-green-400";
+        return "bg-green-100 text-green-700 border border-green-300";
       case "PENDING":
       case "PROCESSING":
-        return "text-yellow-400";
+        return "bg-amber-100 text-amber-700 border border-amber-300";
       case "CANCELLED":
       case "FAILED":
       case "REJECTED":
-        return "text-red-400";
+        return "bg-red-100 text-red-700 border border-red-300";
       default:
-        return "text-gray-400";
+        return "bg-gray-100 text-gray-700 border border-gray-300";
     }
   };
 
@@ -141,7 +141,7 @@ export default function HistoryPage() {
       <div className="w-full space-y-3 sm:space-y-4 px-2 sm:px-0">
         <div className="space-y-2">
           <div className="flex items-center gap-2 sm:gap-3">
-            <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
+            <h1 className="text-gray-800 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-baseline gap-2 md:gap-4">
               History
               <Image
                 src={History}
@@ -154,11 +154,11 @@ export default function HistoryPage() {
           </div>
         </div>
 
-        <Separator className="bg-[#989898] h-px mb-2 sm:mb-3 md:mb-5" />
+        <Separator className="bg-[#D4C5A0] h-px mb-2 sm:mb-3 md:mb-5" />
 
         {/* Error Message */}
         {error && (
-          <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+          <div className="mb-4 p-4 bg-red-100 border-2 border-red-300 text-red-700 rounded-lg">
             <div className="flex justify-between items-center">
               <span>{error}</span>
               <button
@@ -174,15 +174,15 @@ export default function HistoryPage() {
         {/* History Type */}
         <div className="flex justify-center items-center mb-6">
           <Select value={selectedType} onValueChange={handleHistoryChange}>
-            <SelectTrigger className="w-full max-w-md bg-white text-[#9058FE] cursor-pointer">
+            <SelectTrigger className="w-full max-w-md bg-white border-2 border-[#D4C5A0] text-[#D4AF37] cursor-pointer">
               <SelectValue placeholder="Select History" />
             </SelectTrigger>
-            <SelectContent className="bg-white">
+            <SelectContent className="bg-white border-2 border-[#E5D5B7]">
               {historyOptions.map((option) => (
                 <SelectItem
                   key={option.value}
                   value={option.value}
-                  className="text-[#9058FE] hover:bg-violet-100 focus:bg-[#9058FE] focus: cursor-pointer"
+                  className="text-[#D4AF37] hover:bg-[#FFF9F0] focus:bg-[#D4AF37] focus:text-white cursor-pointer"
                 >
                   {option.label}
                 </SelectItem>
@@ -194,7 +194,7 @@ export default function HistoryPage() {
         {/* Table */}
         {loading ? (
           <div className="flex justify-center items-center py-8">
-            <div className=" text-lg">Loading transactions...</div>
+            <div className="text-gray-700 text-lg">Loading transactions...</div>
           </div>
         ) : currentData.length > 0 ? (
           <div className="w-full space-y-3 sm:space-y-4">
@@ -207,19 +207,19 @@ export default function HistoryPage() {
                 return (
                   <div
                     key={`${transaction.t_id}-${index}`}
-                    className="rounded-xl border border-slate-700/50 backdrop-blur-sm shadow-lg p-4 cursor-pointer"
+                    className="rounded-xl border-2 border-[#E5D5B7] backdrop-blur-sm shadow-lg p-4 cursor-pointer"
                     style={{
                       background:
-                        "linear-gradient(180deg, #343967 0%, #263450 100%)",
+                        "linear-gradient(180deg, #FFFFFF 0%, #FFF9F0 100%)",
                     }}
                     onClick={() => handleRowClick(transaction)}
                   >
                     <div className="flex justify-between items-start mb-3">
                       <div>
-                        <div className=" text-sm font-medium">
+                        <div className="text-gray-800 text-sm font-medium">
                           {formattedDate}
                         </div>
-                        <div className="text-gray-400 text-xs">
+                        <div className="text-gray-600 text-xs">
                           {formattedTime}
                         </div>
                       </div>
@@ -228,21 +228,21 @@ export default function HistoryPage() {
 
                     <div className="space-y-2 mb-3">
                       <div className="flex justify-between">
-                        <span className="text-gray-300 text-xs">Type:</span>
-                        <span className=" text-sm font-medium">
+                        <span className="text-gray-600 text-xs">Type:</span>
+                        <span className="text-gray-800 text-sm font-medium">
                           {transaction.tran_type}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-300 text-xs">Amount:</span>
-                        <span className=" text-sm font-medium">
+                        <span className="text-gray-600 text-xs">Amount:</span>
+                        <span className="text-gray-800 text-sm font-medium">
                           {transaction.in_amount || transaction.out_amount}{" "}
                           {transaction.coin_name}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-300 text-xs">Details:</span>
-                        <span className=" text-sm text-right flex-1 ml-2 truncate">
+                        <span className="text-gray-600 text-xs">Details:</span>
+                        <span className="text-gray-800 text-sm text-right flex-1 ml-2 truncate">
                           {transaction.detail}
                         </span>
                       </div>
@@ -252,10 +252,10 @@ export default function HistoryPage() {
               })}
               {totalPages > 1 && (
                 <div
-                  className="rounded-xl border border-slate-700/50 backdrop-blur-sm shadow-lg p-4"
+                  className="rounded-xl border-2 border-[#E5D5B7] backdrop-blur-sm shadow-lg p-4"
                   style={{
                     background:
-                      "linear-gradient(180deg, #343967 0%, #263450 100%)",
+                      "linear-gradient(180deg, #FFFFFF 0%, #FFF9F0 100%)",
                   }}
                 >
                   <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
@@ -265,8 +265,8 @@ export default function HistoryPage() {
                         onClick={() => handlePageChange(page)}
                         className={`w-8 h-8 sm:w-10 sm:h-10 !rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
                           page === currentPage
-                            ? "!bg-gradient-to-r from-[#9058FE] to-[#563598] ! shadow-lg transform scale-105"
-                            : "bg-transparent border-2 border-[#9058FE] !text-gray-300 hover:!"
+                            ? "!bg-gradient-to-r from-[#D4AF37] to-[#B8860B] !text-white shadow-lg shadow-[#D4AF37]/50 transform scale-105"
+                            : "!bg-transparent border-2 border-[#D4AF37] !text-gray-700 hover:!bg-[#FFF9F0]"
                         }`}
                       >
                         {page}
@@ -276,7 +276,7 @@ export default function HistoryPage() {
                     {currentPage < totalPages && (
                       <Button
                         onClick={() => handlePageChange(currentPage + 1)}
-                        className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full bg-transparent border-2 border-[#9058FE] text-gray-300 hover:bg-gray-500/60 hover: transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer"
+                        className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full !bg-transparent border-2 border-[#D4AF37] !text-gray-700 hover:!bg-[#FFF9F0] transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer"
                       >
                         <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
@@ -287,20 +287,20 @@ export default function HistoryPage() {
             </div>
             <div className="hidden lg:block">
               <div
-                className="rounded-2xl border border-slate-700/50 backdrop-blur-sm shadow-2xl overflow-hidden"
+                className="rounded-2xl border-2 border-[#E5D5B7] backdrop-blur-sm shadow-2xl overflow-hidden"
                 style={{
                   background:
-                    "linear-gradient(180deg, #343967 0%, #263450 100%)",
+                    "linear-gradient(180deg, #FFFFFF 0%, #FFF9F0 100%)",
                 }}
               >
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[800px]">
                     <thead>
-                      <tr className="relative">
+                      <tr className="relative border-b-2 border-[#D4C5A0] bg-gradient-to-r from-[#FFD700]/10 to-[#D4AF37]/10">
                         {getTableHeaders().map((header, index) => (
                           <th
                             key={index}
-                            className={` text-sm lg:text-base xl:text-lg font-semibold py-3 lg:py-4 px-3 lg:px-6 ${
+                            className={`text-gray-800 text-sm lg:text-base xl:text-lg font-semibold py-3 lg:py-4 px-3 lg:px-6 ${
                               index === 0 ? "text-left" : "text-center"
                             }`}
                           >
@@ -318,40 +318,40 @@ export default function HistoryPage() {
                         return (
                           <tr
                             key={`${transaction.t_id}-${index}`}
-                            className="hover:bg-slate-700/20 cursor-pointer transition-colors relative"
+                            className="hover:bg-[#FFD700]/10 cursor-pointer transition-colors relative border-b border-[#E5D5B7]"
                             onClick={() => handleRowClick(transaction)}
                           >
-                            <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6">
+                            <td className="text-gray-700 text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6">
                               <div className="space-y-1">
-                                <div className=" text-sm lg:text-base">
+                                <div className="text-gray-800 text-sm lg:text-base">
                                   {formattedDate}
                                 </div>
-                                <div className="text-gray-400 text-xs">
+                                <div className="text-gray-600 text-xs">
                                   {formattedTime}
                                 </div>
                               </div>
                             </td>
-                            <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
-                              <div className=" text-sm lg:text-base font-medium">
+                            <td className="text-gray-700 text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                              <div className="text-gray-800 text-sm lg:text-base font-medium">
                                 {transaction.tran_type}
                               </div>
                             </td>
-                            <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
-                              <div className=" text-sm lg:text-base font-medium">
+                            <td className="text-gray-700 text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                              <div className="text-gray-800 text-sm lg:text-base font-medium">
                                 {transaction.in_amount ||
                                   transaction.out_amount}
                               </div>
                             </td>
-                            <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
-                              <div className=" text-sm lg:text-base font-medium">
+                            <td className="text-gray-700 text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                              <div className="text-gray-800 text-sm lg:text-base font-medium">
                                 {transaction.coin_name}
                               </div>
                             </td>
                             <td className="py-3 lg:py-4 px-3 lg:px-6 text-center">
                               <StatusBadge status={transaction.admin_status} />
                             </td>
-                            <td className=" text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
-                              <div className=" text-sm lg:text-base truncate max-w-[200px]">
+                            <td className="text-gray-700 text-sm lg:text-base py-3 lg:py-4 px-3 lg:px-6 text-center">
+                              <div className="text-gray-800 text-sm lg:text-base truncate max-w-[200px]">
                                 {transaction.detail}
                               </div>
                             </td>
@@ -363,7 +363,7 @@ export default function HistoryPage() {
                 </div>
 
                 {totalPages > 1 && (
-                  <div className="flex flex-col items-center justify-center p-3 lg:p-6 space-y-4 border-t border-slate-700/50">
+                  <div className="flex flex-col items-center justify-center p-3 lg:p-6 space-y-4 border-t-2 border-[#D4C5A0]">
                     <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
                       {getPageNumbers().map((page) => (
                         <Button
@@ -371,8 +371,8 @@ export default function HistoryPage() {
                           onClick={() => handlePageChange(page)}
                           className={`w-8 h-8 sm:w-10 sm:h-10 !rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
                             page === currentPage
-                              ? "!bg-gradient-to-r from-[#9058FE] to-[#563598] ! shadow-lg transform scale-105"
-                              : "bg-transparent border-2 border-[#9058FE] !text-gray-300 hover:!"
+                              ? "!bg-gradient-to-r from-[#D4AF37] to-[#B8860B] !text-white shadow-lg shadow-[#D4AF37]/50 transform scale-105"
+                              : "!bg-transparent border-2 border-[#D4AF37] !text-gray-700 hover:!bg-[#FFF9F0]"
                           }`}
                         >
                           {page}
@@ -382,7 +382,7 @@ export default function HistoryPage() {
                       {currentPage < totalPages && (
                         <Button
                           onClick={() => handlePageChange(currentPage + 1)}
-                          className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full bg-transparent border-2 border-[#9058FE] text-gray-300 hover:bg-gray-500/60 hover: transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer"
+                          className="w-8 h-8 sm:w-10 sm:h-10 !rounded-full !bg-transparent border-2 border-[#D4AF37] !text-gray-700 hover:!bg-[#FFF9F0] transition-all duration-200 flex items-center justify-center ml-1 cursor-pointer"
                         >
                           <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
@@ -395,7 +395,7 @@ export default function HistoryPage() {
           </div>
         ) : (
           <div className="flex justify-center items-center py-8">
-            <div className=" text-lg">No transactions found</div>
+            <div className="text-gray-700 text-lg">No transactions found</div>
           </div>
         )}
       </div>
