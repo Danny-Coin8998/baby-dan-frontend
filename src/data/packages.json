@@ -1,0 +1,45 @@
+{
+  "packages": [
+    {
+      "id": 0,
+      "amount": 10,
+      "profit": "Get 150% every day",
+      "bgColor": "bg-white",
+      "textColor": "text-gray-800",
+      "amountColor": "text-gray-800"
+    },
+    {
+      "id": 1,
+      "amount": 100,
+      "profit": "Get 150% every day",
+      "bgColor": "bg-white",
+      "textColor": "text-gray-800",
+      "amountColor": "text-gray-800",
+      "selected": true
+    },
+    {
+      "id": 2,
+      "amount": 300,
+      "profit": "Get 150% every day",
+      "bgColor": "bg-white",
+      "textColor": "text-gray-800",
+      "amountColor": "text-gray-800"
+    },
+    {
+      "id": 3,
+      "amount": 500,
+      "profit": "Get 150% every day",
+      "bgColor": "bg-white",
+      "textColor": "text-gray-800",
+      "amountColor": "text-gray-800"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "account-balance",
+      "label": "Account Balance",
+      "value": "925 USDT",
+      "color": "#9058FE"
+    }
+  ]
+}

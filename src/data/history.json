@@ -1,0 +1,673 @@
+{
+  "historyOptions": [
+    { "value": "default", "label": "Select History" },
+    { "value": "deposit", "label": "Deposit History" },
+    { "value": "withdrawal", "label": "Withdrawal History" },
+    { "value": "transfer", "label": "Transfer History" },
+    { "value": "referral", "label": "Referral Commission History" },
+    { "value": "binary", "label": "Binary Commission History" },
+    { "value": "apr", "label": "APR Referral Commission History" }
+  ],
+  "historyData": {
+    "deposit": [
+      {
+        "id": 1001,
+        "date": "2025-02-02 14:30:15",
+        "amount": "100.00",
+        "fee": "0.00",
+        "receive": "100.00",
+        "withdrawTo": "TRC20 Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 1002,
+        "date": "2025-02-01 09:45:22",
+        "amount": "250.00",
+        "fee": "0.00",
+        "receive": "250.00",
+        "withdrawTo": "ERC20 Wallet",
+        "status": "PENDING"
+      },
+      {
+        "id": 1003,
+        "date": "2025-01-31 16:20:10",
+        "amount": "75.50",
+        "fee": "0.00",
+        "receive": "75.50",
+        "withdrawTo": "TRC20 Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 1004,
+        "date": "2025-01-30 11:15:30",
+        "amount": "500.00",
+        "fee": "0.00",
+        "receive": "500.00",
+        "withdrawTo": "ERC20 Wallet",
+        "status": "CANCELLED"
+      },
+      {
+        "id": 1005,
+        "date": "2025-01-29 13:40:25",
+        "amount": "150.00",
+        "fee": "0.00",
+        "receive": "150.00",
+        "withdrawTo": "TRC20 Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 1006,
+        "date": "2025-01-28 10:15:45",
+        "amount": "320.00",
+        "fee": "0.00",
+        "receive": "320.00",
+        "withdrawTo": "BEP20 Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 1007,
+        "date": "2025-01-27 15:30:20",
+        "amount": "85.75",
+        "fee": "0.00",
+        "receive": "85.75",
+        "withdrawTo": "TRC20 Wallet",
+        "status": "PENDING"
+      },
+      {
+        "id": 1008,
+        "date": "2025-01-26 09:45:30",
+        "amount": "200.00",
+        "fee": "0.00",
+        "receive": "200.00",
+        "withdrawTo": "ERC20 Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 1009,
+        "date": "2025-01-25 14:20:15",
+        "amount": "125.50",
+        "fee": "0.00",
+        "receive": "125.50",
+        "withdrawTo": "TRC20 Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 1010,
+        "date": "2025-01-24 11:35:40",
+        "amount": "400.00",
+        "fee": "0.00",
+        "receive": "400.00",
+        "withdrawTo": "BEP20 Wallet",
+        "status": "PENDING"
+      },
+      {
+        "id": 1011,
+        "date": "2025-01-23 16:50:25",
+        "amount": "175.25",
+        "fee": "0.00",
+        "receive": "175.25",
+        "withdrawTo": "ERC20 Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 1012,
+        "date": "2025-01-22 12:15:30",
+        "amount": "95.00",
+        "fee": "0.00",
+        "receive": "95.00",
+        "withdrawTo": "TRC20 Wallet",
+        "status": "CANCELLED"
+      }
+    ],
+    "withdrawal": [
+      {
+        "id": 2001,
+        "date": "2025-02-02 16:20:45",
+        "amount": "80.00",
+        "fee": "2.00",
+        "receive": "78.00",
+        "withdrawTo": "TRC20: TXn7...8kL2",
+        "status": "PROCESSING"
+      },
+      {
+        "id": 2002,
+        "date": "2025-02-01 12:15:30",
+        "amount": "200.00",
+        "fee": "5.00",
+        "receive": "195.00",
+        "withdrawTo": "ERC20: 0x42...9fA7",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2003,
+        "date": "2025-01-31 14:50:20",
+        "amount": "45.75",
+        "fee": "1.50",
+        "receive": "44.25",
+        "withdrawTo": "TRC20: TYh8...3mN9",
+        "status": "PENDING"
+      },
+      {
+        "id": 2004,
+        "date": "2025-01-30 10:30:15",
+        "amount": "350.00",
+        "fee": "8.00",
+        "receive": "342.00",
+        "withdrawTo": "ERC20: 0x89...4kL1",
+        "status": "REJECTED"
+      },
+      {
+        "id": 2005,
+        "date": "2025-01-29 15:25:40",
+        "amount": "120.50",
+        "fee": "3.00",
+        "receive": "117.50",
+        "withdrawTo": "TRC20: TZm4...7pQ6",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2006,
+        "date": "2025-01-28 09:40:20",
+        "amount": "275.00",
+        "fee": "6.50",
+        "receive": "268.50",
+        "withdrawTo": "BEP20: 0xAB...3kM8",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2007,
+        "date": "2025-01-27 13:20:15",
+        "amount": "90.25",
+        "fee": "2.25",
+        "receive": "88.00",
+        "withdrawTo": "TRC20: TLp9...5nR7",
+        "status": "PROCESSING"
+      },
+      {
+        "id": 2008,
+        "date": "2025-01-26 16:35:30",
+        "amount": "180.00",
+        "fee": "4.00",
+        "receive": "176.00",
+        "withdrawTo": "ERC20: 0x56...2hB4",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2009,
+        "date": "2025-01-25 11:50:45",
+        "amount": "65.50",
+        "fee": "1.75",
+        "receive": "63.75",
+        "withdrawTo": "TRC20: TQz3...8xC1",
+        "status": "PENDING"
+      },
+      {
+        "id": 2010,
+        "date": "2025-01-24 14:15:20",
+        "amount": "420.00",
+        "fee": "10.00",
+        "receive": "410.00",
+        "withdrawTo": "BEP20: 0xCD...7pL9",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2011,
+        "date": "2025-01-23 10:30:35",
+        "amount": "155.75",
+        "fee": "3.75",
+        "receive": "152.00",
+        "withdrawTo": "ERC20: 0x71...5mK2",
+        "status": "REJECTED"
+      },
+      {
+        "id": 2012,
+        "date": "2025-01-22 15:45:10",
+        "amount": "95.00",
+        "fee": "2.50",
+        "receive": "92.50",
+        "withdrawTo": "TRC20: TRx6...4nP8",
+        "status": "COMPLETED"
+      }
+    ],
+    "transfer": [
+      {
+        "id": 3001,
+        "date": "2025-02-02 11:45:30",
+        "amount": "50.00",
+        "fee": "0.50",
+        "receive": "49.50",
+        "withdrawTo": "user@example.com",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 3002,
+        "date": "2025-02-01 15:20:15",
+        "amount": "25.00",
+        "fee": "0.25",
+        "receive": "24.75",
+        "withdrawTo": "john@demo.com",
+        "status": "PENDING"
+      },
+      {
+        "id": 3003,
+        "date": "2025-01-31 09:30:45",
+        "amount": "100.00",
+        "fee": "1.00",
+        "receive": "99.00",
+        "withdrawTo": "mary@test.com",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 3004,
+        "date": "2025-01-30 17:15:20",
+        "amount": "75.50",
+        "fee": "0.75",
+        "receive": "74.75",
+        "withdrawTo": "bob@sample.com",
+        "status": "CANCELLED"
+      },
+      {
+        "id": 3005,
+        "date": "2025-01-29 12:40:35",
+        "amount": "200.00",
+        "fee": "2.00",
+        "receive": "198.00",
+        "withdrawTo": "alice@demo.com",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 3006,
+        "date": "2025-01-28 14:25:20",
+        "amount": "35.00",
+        "fee": "0.35",
+        "receive": "34.65",
+        "withdrawTo": "david@test.com",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 3007,
+        "date": "2025-01-27 10:50:45",
+        "amount": "150.00",
+        "fee": "1.50",
+        "receive": "148.50",
+        "withdrawTo": "sarah@sample.com",
+        "status": "PENDING"
+      },
+      {
+        "id": 3008,
+        "date": "2025-01-26 16:35:30",
+        "amount": "80.25",
+        "fee": "0.80",
+        "receive": "79.45",
+        "withdrawTo": "mike@demo.com",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 3009,
+        "date": "2025-01-25 13:20:15",
+        "amount": "120.00",
+        "fee": "1.20",
+        "receive": "118.80",
+        "withdrawTo": "lisa@test.com",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 3010,
+        "date": "2025-01-24 09:45:40",
+        "amount": "300.00",
+        "fee": "3.00",
+        "receive": "297.00",
+        "withdrawTo": "tom@sample.com",
+        "status": "CANCELLED"
+      },
+      {
+        "id": 3011,
+        "date": "2025-01-23 15:10:25",
+        "amount": "45.75",
+        "fee": "0.46",
+        "receive": "45.29",
+        "withdrawTo": "anna@demo.com",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 3012,
+        "date": "2025-01-22 11:30:50",
+        "amount": "90.00",
+        "fee": "0.90",
+        "receive": "89.10",
+        "withdrawTo": "peter@test.com",
+        "status": "PENDING"
+      }
+    ],
+    "referral": [
+      {
+        "id": 4001,
+        "date": "2025-02-02 08:30:20",
+        "amount": "15.00",
+        "fee": "0.00",
+        "receive": "15.00",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4002,
+        "date": "2025-02-01 10:45:15",
+        "amount": "8.75",
+        "fee": "0.00",
+        "receive": "8.75",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4003,
+        "date": "2025-01-31 14:20:30",
+        "amount": "22.50",
+        "fee": "0.00",
+        "receive": "22.50",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4004,
+        "date": "2025-01-30 16:35:45",
+        "amount": "12.25",
+        "fee": "0.00",
+        "receive": "12.25",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4005,
+        "date": "2025-01-29 11:50:10",
+        "amount": "18.00",
+        "fee": "0.00",
+        "receive": "18.00",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4006,
+        "date": "2025-01-28 09:25:35",
+        "amount": "27.50",
+        "fee": "0.00",
+        "receive": "27.50",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4007,
+        "date": "2025-01-27 15:40:20",
+        "amount": "9.75",
+        "fee": "0.00",
+        "receive": "9.75",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4008,
+        "date": "2025-01-26 12:15:45",
+        "amount": "31.25",
+        "fee": "0.00",
+        "receive": "31.25",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4009,
+        "date": "2025-01-25 17:30:10",
+        "amount": "14.50",
+        "fee": "0.00",
+        "receive": "14.50",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4010,
+        "date": "2025-01-24 13:45:25",
+        "amount": "19.75",
+        "fee": "0.00",
+        "receive": "19.75",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4011,
+        "date": "2025-01-23 10:20:40",
+        "amount": "25.00",
+        "fee": "0.00",
+        "receive": "25.00",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 4012,
+        "date": "2025-01-22 16:55:15",
+        "amount": "11.25",
+        "fee": "0.00",
+        "receive": "11.25",
+        "withdrawTo": "Commission Wallet",
+        "status": "COMPLETED"
+      }
+    ],
+    "binary": [
+      {
+        "id": 5001,
+        "date": "2025-02-02 07:15:30",
+        "amount": "45.00",
+        "fee": "0.00",
+        "receive": "45.00",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5002,
+        "date": "2025-02-01 09:30:45",
+        "amount": "32.50",
+        "fee": "0.00",
+        "receive": "32.50",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5003,
+        "date": "2025-01-31 13:45:20",
+        "amount": "58.75",
+        "fee": "0.00",
+        "receive": "58.75",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5004,
+        "date": "2025-01-30 15:20:15",
+        "amount": "28.00",
+        "fee": "0.00",
+        "receive": "28.00",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5005,
+        "date": "2025-01-29 10:35:40",
+        "amount": "41.25",
+        "fee": "0.00",
+        "receive": "41.25",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5006,
+        "date": "2025-01-28 12:50:25",
+        "amount": "67.50",
+        "fee": "0.00",
+        "receive": "67.50",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5007,
+        "date": "2025-01-27 16:15:10",
+        "amount": "23.75",
+        "fee": "0.00",
+        "receive": "23.75",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5008,
+        "date": "2025-01-26 08:40:35",
+        "amount": "52.25",
+        "fee": "0.00",
+        "receive": "52.25",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5009,
+        "date": "2025-01-25 14:25:50",
+        "amount": "38.00",
+        "fee": "0.00",
+        "receive": "38.00",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5010,
+        "date": "2025-01-24 11:10:15",
+        "amount": "49.50",
+        "fee": "0.00",
+        "receive": "49.50",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5011,
+        "date": "2025-01-23 17:35:30",
+        "amount": "33.25",
+        "fee": "0.00",
+        "receive": "33.25",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 5012,
+        "date": "2025-01-22 13:20:45",
+        "amount": "61.75",
+        "fee": "0.00",
+        "receive": "61.75",
+        "withdrawTo": "Binary Wallet",
+        "status": "COMPLETED"
+      }
+    ],
+    "apr": [
+      {
+        "id": 6001,
+        "date": "2025-02-01 00:00:00",
+        "amount": "125.50",
+        "fee": "0.00",
+        "receive": "125.50",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6002,
+        "date": "2025-01-01 00:00:00",
+        "amount": "118.75",
+        "fee": "0.00",
+        "receive": "118.75",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6003,
+        "date": "2024-12-01 00:00:00",
+        "amount": "142.25",
+        "fee": "0.00",
+        "receive": "142.25",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6004,
+        "date": "2024-11-01 00:00:00",
+        "amount": "89.50",
+        "fee": "0.00",
+        "receive": "89.50",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6005,
+        "date": "2024-10-01 00:00:00",
+        "amount": "156.00",
+        "fee": "0.00",
+        "receive": "156.00",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6006,
+        "date": "2024-09-01 00:00:00",
+        "amount": "134.25",
+        "fee": "0.00",
+        "receive": "134.25",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6007,
+        "date": "2024-08-01 00:00:00",
+        "amount": "97.75",
+        "fee": "0.00",
+        "receive": "97.75",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6008,
+        "date": "2024-07-01 00:00:00",
+        "amount": "168.50",
+        "fee": "0.00",
+        "receive": "168.50",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6009,
+        "date": "2024-06-01 00:00:00",
+        "amount": "112.25",
+        "fee": "0.00",
+        "receive": "112.25",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6010,
+        "date": "2024-05-01 00:00:00",
+        "amount": "145.75",
+        "fee": "0.00",
+        "receive": "145.75",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6011,
+        "date": "2024-04-01 00:00:00",
+        "amount": "128.00",
+        "fee": "0.00",
+        "receive": "128.00",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      },
+      {
+        "id": 6012,
+        "date": "2024-03-01 00:00:00",
+        "amount": "103.50",
+        "fee": "0.00",
+        "receive": "103.50",
+        "withdrawTo": "APR Wallet",
+        "status": "COMPLETED"
+      }
+    ]
+  }
+}

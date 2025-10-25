@@ -1,0 +1,81 @@
+{
+  "directData": [
+    {
+      "id": 1,
+      "name": "Psit@1",
+      "email": "prasit1@gmail.com",
+      "status": "Unverified",
+      "registerDate": "2025-02-02 12:10:03"
+    },
+    {
+      "id": 2,
+      "name": "Psit@2",
+      "email": "prasit2@gmail.com",
+      "status": "Unverified",
+      "registerDate": "2025-02-02 12:10:03"
+    },
+    {
+      "id": 3,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Verified",
+      "registerDate": "2025-02-01 09:15:22"
+    },
+    {
+      "id": 4,
+      "name": "Mike@4",
+      "email": "mike4@gmail.com",
+      "status": "Pending",
+      "registerDate": "2025-01-30 16:45:10"
+    },
+    {
+      "id": 5,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Verified",
+      "registerDate": "2025-02-01 09:15:22"
+    },
+    {
+      "id": 6,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Verified",
+      "registerDate": "2025-02-01 09:15:22"
+    },
+    {
+      "id": 7,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Pending",
+      "registerDate": "2025-02-01 09:15:22"
+    },
+    {
+      "id": 8,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Verified",
+      "registerDate": "2025-02-01 09:15:22"
+    },
+    {
+      "id": 9,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Unverified",
+      "registerDate": "2025-02-01 09:15:22"
+    },
+    {
+      "id": 10,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Verified",
+      "registerDate": "2025-02-01 09:15:22"
+    },
+    {
+      "id": 11,
+      "name": "John@3",
+      "email": "john3@gmail.com",
+      "status": "Unverified",
+      "registerDate": "2025-02-01 09:15:22"
+    }
+  ]
+}
