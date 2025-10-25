@@ -32,7 +32,7 @@ const Button = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-purple-600  hover:bg-purple-700 focus:ring-purple-500 ${sizeStyles[size]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-yellow-500  hover:bg-purple-700 focus:ring-purple-500 ${sizeStyles[size]} ${className}`}
     >
       {children}
     </button>
@@ -222,7 +222,7 @@ export default function DirectPage(): JSX.Element {
                       }}
                       className="bg-white !text-[#9058FE] !rounded-full shadow-lg cursor-pointer"
                     >
-                      Transfer fund
+                      transfer Baby Dan
                     </Button>
                   </div>
                 </div>
@@ -291,7 +291,7 @@ export default function DirectPage(): JSX.Element {
                         Register Date
                       </th>
                       <th className=" text-sm lg:text-base xl:text-lg font-medium py-3 lg:py-4 px-3 lg:px-6 text-center">
-                        Transfer fund
+                        transfer Baby Dan
                       </th>
                     </tr>
                   </thead>
@@ -339,7 +339,7 @@ export default function DirectPage(): JSX.Element {
                               }}
                               className="bg-white !text-[#9058FE] !rounded-full shadow-lg cursor-pointer"
                             >
-                              Transfer fund
+                              transfer Baby Dan
                             </Button>
                           </td>
                         </tr>

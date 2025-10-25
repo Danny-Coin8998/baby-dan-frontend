@@ -178,7 +178,7 @@
 .dashboard-gradient {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 240, 214, 0.9) 0%,
     rgba(250, 248, 245, 0.9) 30%,
     rgba(255, 248, 235, 0.85) 60%,
     rgba(255, 240, 214, 0.9) 100%

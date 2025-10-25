@@ -58,7 +58,7 @@ export default function TransferPage() {
       return;
     }
 
-    if (balance && amount > balance.dan_balance) {
+    if (balance && amount > balance.baby_dan_balance) {
       setTransferError("Insufficient balance for transfer");
       return;
     }
@@ -126,7 +126,7 @@ export default function TransferPage() {
       <div className="w-full space-y-4 sm:space-y-6 sm:px-4">
         <div className="mb-3 sm:mb-4 md:mb-6">
           <h1 className=" text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold flex items-center gap-2 sm:gap-3 md:gap-4">
-            Transfer DAN
+            Transfer BBD
             <Image
               src={MoneyIcon}
               alt="transfer"
@@ -144,9 +144,9 @@ export default function TransferPage() {
             <div
               className="rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center backdrop-blur-sm"
               style={{
-                background: "#9058FE",
+                background: "linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 235, 0.85) 60%, rgba(255, 240, 214, 0.9) 100%)",
                 backdropFilter: "blur(20px)",
-                boxShadow: "0px 0px 15px 0px #9058FE",
+                boxShadow: "0px 0px 5px 0px #FFD700",
               }}
             >
               <h3 className=" text-lg sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2">
@@ -156,13 +156,13 @@ export default function TransferPage() {
                 {balanceLoading
                   ? "Loading..."
                   : balance
-                  ? `${balance.dan_balance.toLocaleString()} DAN`
-                  : "0 DAN"}
+                  ? `${balance.baby_dan_balance.toLocaleString()} BBD`
+                  : "0 BBD "}
               </p>
             </div>
           </div>
 
-          <div className="bg-gray-300 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6">
+          <div className="rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6">
             <h2 className="text-gray-800 text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
               Transfer DAN Tokens
               <Image

@@ -44,7 +44,7 @@ apiClient.interceptors.response.use(
 
 interface BalanceData {
   userid: number;
-  dan_balance: number;
+  baby_dan_balance: number;
 }
 
 interface ApiResponse<T = unknown> {
