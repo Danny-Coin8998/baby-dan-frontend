@@ -57,7 +57,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
           variant="outline"
           size="icon"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="bg-slate-900 border-slate-700  hover:bg-slate-800"
+          className="bg-white border-black  hover:bg-yellow-500"
         >
           {isMobileMenuOpen ? (
             <X className="h-5 w-5" />
@@ -78,7 +78,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
       {/* Sidebar */}
       <div
         className={cn(
-          "flex h-screen w-64 flex-col bg-slate-900 transition-transform duration-300 ease-in-out",
+          "flex h-screen w-64 flex-col bg-white transition-transform duration-300 ease-in-out",
           "lg:translate-x-0 lg:relative lg:z-auto",
           "fixed z-50 lg:static",
           isMobileMenuOpen
@@ -110,8 +110,8 @@ export function AppSidebar({ className }: AppSidebarProps) {
                 <Button
                   variant="ghost"
                   className={cn(
-                    "w-full justify-start  hover: hover:bg-slate-800 text-xl font-normal",
-                    isActive && "bg-[#333966] "
+                    "w-full justify-start  hover:bg-yellow-500 text-xl font-normal cursor-pointer",
+                    isActive && "bg-yellow-500 "
                   )}
                   onClick={() => {
                     if (window.innerWidth < 1024) {
@@ -124,7 +124,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
                     alt={`${item.label} icon`}
                     width={20}
                     height={20}
-                    className="mr-3 object-contain"
+                    className="mr-3 object-contain filter brightness-0 saturate-100 hue-rotate-45 sepia-100"
                   />
                   {item.label}
                 </Button>
