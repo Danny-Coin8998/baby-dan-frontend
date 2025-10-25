@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import { usdtTransferService } from "@/services/usdtTransferService";
 
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
@@ -84,6 +85,13 @@ interface PackageStore {
   currentIndex: number;
   buyingPackage: boolean;
 
+  // USDT Payment State
+  isProcessingPayment: boolean;
+  transactionHash: string | null;
+  paymentError: string | null;
+  estimatedGasCost: string | null;
+  bnbBalance: string | null;
+
   // API Methods
   getPackages: () => Promise<ApiResponse<PackageApiResponse["data"]>>;
   buyPackage: (
@@ -92,13 +100,16 @@ interface PackageStore {
 
   // Actions
   fetchPackages: () => Promise<void>;
-  purchasePackage: (packageId: number) => Promise<void>;
+  purchasePackage: (
+    packageId: number
+  ) => Promise<{ success: boolean; error?: string; paymentError?: string }>;
   setSelectedPackage: (packageId: number) => void;
   setSelectedAccount: (accountId: string) => void;
   setCurrentIndex: (index: number) => void;
   handlePrevious: () => void;
   handleNext: () => void;
   clearError: () => void;
+  clearPaymentError: () => void;
 }
 
 export const usePackageStore = create<PackageStore>((set, get) => ({
@@ -113,6 +124,13 @@ export const usePackageStore = create<PackageStore>((set, get) => ({
   selectedAccount: "account-balance",
   currentIndex: 0,
   buyingPackage: false,
+
+  // USDT Payment State
+  isProcessingPayment: false,
+  transactionHash: null,
+  paymentError: null,
+  estimatedGasCost: null,
+  bnbBalance: null,
 
   // API Methods
   getPackages: async () => {
@@ -200,21 +218,210 @@ export const usePackageStore = create<PackageStore>((set, get) => ({
   },
 
   purchasePackage: async (packageId: number) => {
-    set({ buyingPackage: true, error: null });
+    const { packages } = get();
+    const selectedPkg = packages.find(
+      (pkg: PackageItem) => pkg.p_id === packageId
+    );
 
-    const result = await get().buyPackage(packageId);
-
-    if (result.success) {
-      // Refresh packages to update user balance and package availability
-      await get().fetchPackages();
-    } else {
-      set({ error: result.error || "Failed to purchase package" });
+    if (!selectedPkg) {
+      set({ error: "Package not found" });
+      return { success: false, error: "Package not found" };
     }
 
-    set({ buyingPackage: false });
+    set({
+      buyingPackage: true,
+      error: null,
+      paymentError: null,
+      transactionHash: null,
+      estimatedGasCost: null,
+      bnbBalance: null,
+    });
+
+    try {
+      // Step 1: Process USDT payment
+      set({ isProcessingPayment: true });
+
+      console.log(`Processing USDT payment: ${selectedPkg.p_amount} USDT`);
+
+      // Ensure wallet is properly connected before proceeding
+      let userAddress: string;
+      try {
+        userAddress = await usdtTransferService.ensureWalletConnected();
+        console.log("Wallet connected successfully:", userAddress);
+      } catch (error) {
+        console.error("Failed to connect wallet:", error);
+        const errorMsg =
+          error instanceof Error
+            ? error.message
+            : "Failed to connect wallet. Please ensure MetaMask is installed and unlocked.";
+        set({
+          paymentError: errorMsg,
+          isProcessingPayment: false,
+          buyingPackage: false,
+        });
+        return { success: false, paymentError: errorMsg };
+      }
+
+      // Check USDT balance before attempting transfer
+      console.log(`Checking USDT balance for address: ${userAddress}`);
+      console.log(`Required amount: ${selectedPkg.p_amount} USDT`);
+
+      // Debug USDT token info
+      try {
+        const debugInfo = await usdtTransferService.debugUSDTInfo();
+        console.log("USDT Debug Info:", debugInfo);
+      } catch (debugError) {
+        console.error("Failed to get USDT debug info:", debugError);
+      }
+
+      // Check for pending transactions
+      try {
+        const pendingCheck = await usdtTransferService.checkPendingTransactions(
+          userAddress
+        );
+        console.log("Pending transactions check:", pendingCheck);
+        if (pendingCheck.hasPending) {
+          console.warn(
+            `Warning: ${pendingCheck.pendingCount} pending transactions detected. This might affect your balance.`
+          );
+        }
+      } catch (pendingError) {
+        console.error("Failed to check pending transactions:", pendingError);
+      }
+
+      // Add a small delay to ensure blockchain state consistency
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      const balanceCheck = await usdtTransferService.checkUSDTBalance(
+        userAddress,
+        selectedPkg.p_amount
+      );
+
+      console.log("Balance check result:", balanceCheck);
+
+      if (!balanceCheck.sufficient) {
+        // Check if this is due to a user cancellation during balance check
+        if (
+          balanceCheck.currentBalance === 0 &&
+          balanceCheck.formattedBalance === "0.00"
+        ) {
+          set({
+            paymentError: "Transaction cancelled by user",
+            isProcessingPayment: false,
+            buyingPackage: false,
+          });
+          return {
+            success: false,
+            paymentError: "Transaction cancelled by user",
+          };
+        }
+
+        const errorMsg = `Insufficient USDT balance. Required: ${selectedPkg.p_amount} USDT, Available: ${balanceCheck.formattedBalance} USDT`;
+        set({
+          paymentError: errorMsg,
+          isProcessingPayment: false,
+          buyingPackage: false,
+        });
+        return { success: false, paymentError: errorMsg };
+      }
+
+      console.log(
+        `USDT balance check passed: ${balanceCheck.formattedBalance} USDT available`
+      );
+
+      console.log(`Initiating USDT transfer: ${selectedPkg.p_amount} USDT`);
+
+      const transferResult = await usdtTransferService.transferUSDT(
+        selectedPkg.p_amount,
+        userAddress
+      );
+
+      if (!transferResult.success) {
+        const errorMsg = transferResult.error || "USDT payment failed";
+
+        // Check if it's a user cancellation
+        if (
+          errorMsg.includes("cancelled by user") ||
+          errorMsg.includes("user rejected")
+        ) {
+          set({
+            paymentError: "Transaction cancelled by user",
+            isProcessingPayment: false,
+            buyingPackage: false,
+          });
+          return {
+            success: false,
+            paymentError: "Transaction cancelled by user",
+          };
+        }
+
+        set({
+          paymentError: errorMsg,
+          isProcessingPayment: false,
+          buyingPackage: false,
+        });
+        return { success: false, paymentError: errorMsg };
+      }
+
+      console.log("USDT payment successful:", transferResult.transactionHash);
+      console.log(`Gas used: ${transferResult.gasUsed?.toString() || "N/A"}`);
+
+      set({
+        transactionHash: transferResult.transactionHash,
+        isProcessingPayment: false,
+      });
+
+      // Step 2: Call backend API to record the package purchase
+      console.log(
+        `Recording package purchase in backend for package ${packageId}`
+      );
+      const result = await get().buyPackage(packageId);
+
+      if (result.success) {
+        console.log("Package purchase recorded successfully in backend");
+        // Refresh packages to update user balance and package availability
+        await get().fetchPackages();
+        set({
+          paymentError: null,
+          error: null,
+        });
+        return { success: true };
+      } else {
+        const errorMsg = result.error || "Failed to record package purchase";
+        console.error("Backend API error:", errorMsg);
+
+        // Even if backend fails, the USDT payment was successful
+        // Show a warning but don't treat it as complete failure
+        set({
+          error: `Payment successful but failed to record purchase: ${errorMsg}. Please contact support with transaction hash: ${transferResult.transactionHash}`,
+        });
+
+        return {
+          success: false,
+          error: errorMsg,
+          paymentError: `Payment completed but system error occurred. Transaction: ${transferResult.transactionHash}`,
+        };
+      }
+    } catch (error) {
+      console.error("Package purchase error:", error);
+      const errorMsg =
+        error instanceof Error ? error.message : "Purchase failed";
+      set({
+        error: errorMsg,
+        paymentError: null,
+      });
+      return { success: false, error: errorMsg };
+    } finally {
+      set({
+        buyingPackage: false,
+        isProcessingPayment: false,
+      });
+    }
   },
 
   clearError: () => set({ error: null }),
+
+  clearPaymentError: () => set({ paymentError: null }),
 }));
 
 export const usePackage = () => usePackageStore();

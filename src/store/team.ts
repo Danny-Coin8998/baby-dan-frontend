@@ -42,6 +42,18 @@ apiClient.interceptors.response.use(
   }
 );
 
+export interface TreeNode {
+  userid: number;
+  firstname: string;
+  s_pv: number;
+  l_pv: number;
+  r_pv: number;
+  children?: {
+    left: TreeNode | null;
+    right: TreeNode | null;
+  };
+}
+
 interface TeamMember {
   userid: number;
   firstname: string;
@@ -80,6 +92,8 @@ interface TeamData {
   upline: Upline;
   children: Children;
   total_referrals: number;
+  tree?: TreeNode;
+  depth?: number;
 }
 
 interface ApiResponse<T = unknown> {

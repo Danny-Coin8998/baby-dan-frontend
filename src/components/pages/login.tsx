@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/store/auth";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -65,7 +66,6 @@ export default function LoginPage() {
           priority
           quality={100}
         />
-        
       </div>
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-lg">
@@ -82,24 +82,19 @@ export default function LoginPage() {
 
         <div className="w-full max-w-md min-h-[300px] border border-white/44 backdrop-blur-sm rounded-2xl p-8 shadow-xl flex flex-col justify-center">
           <h1 className="text-center text-6xl mb-6">Login</h1>
-
           {!connectedAddress && !isAuthenticated && (
             <div className="text-yellow-600 text-center mb-4 p-3 bg-yellow-400/20 border border-yellow-500/30 rounded-lg">
               Notice: Please unlock your wallet before logging in.
             </div>
           )}
-
           {error && (
             <div className="text-red-400 text-center mb-4 p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
               {error}
             </div>
           )}
-
           {isAuthenticated && jwtToken && (
             <div className="text-black text-center mb-6 space-y-2">
-              <div className="text-sm /80">
-                Authentication Status:
-              </div>
+              <div className="text-sm /80">Authentication Status:</div>
               <div className="text-lg font-semibold text-green-400">
                 ✓ Logged In Successfully
               </div>
@@ -111,7 +106,6 @@ export default function LoginPage() {
               </div>
             </div>
           )}
-
           {connectedAddress && !isAuthenticated && (
             <div className=" text-center mb-6 space-y-2">
               <div className="text-sm text-black/80">Wallet Connected:</div>
@@ -123,7 +117,6 @@ export default function LoginPage() {
               </div>
             </div>
           )}
-
           <Button
             onClick={handleLogin}
             disabled={isLoading}
@@ -137,7 +130,6 @@ export default function LoginPage() {
               ? "Authenticate & Login"
               : "Connect Wallet & Login"}
           </Button>
-
           {(connectedAddress || isAuthenticated) && (
             <Button
               onClick={handleLogout}
@@ -147,6 +139,15 @@ export default function LoginPage() {
               {isAuthenticated ? "Logout" : "Disconnect Wallet"}
             </Button>
           )}
+          <div className="text-center text-sm /60 mt-8 text-yellow-600">
+            Don&apos;t have an account?{" "}
+            <Link
+              href="/register"
+              className="underline hover:text-yellow-600 transition-colors"
+            >
+              Register here
+            </Link>
+          </div>
         </div>
       </div>
     </div>
