@@ -43,7 +43,7 @@ apiClient.interceptors.response.use(
 );
 
 interface TransferData {
-  dan_amount: number;
+  baby_dan_amount: number;
   to_wallet_address: string;
 }
 
