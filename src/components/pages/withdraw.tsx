@@ -72,7 +72,9 @@ export default function WithdrawPage() {
     try {
       console.log("Checking withdrawal limits for amount:", amount);
 
-      const preCheckResult = await preWithdrawCheck({ dan_amount: amount });
+      const preCheckResult = await preWithdrawCheck({
+        baby_dan_amount: amount,
+      });
 
       if (!preCheckResult.success || !preCheckResult.data) {
         setWithdrawError(

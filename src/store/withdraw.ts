@@ -54,12 +54,12 @@ interface ApiResponse<T = unknown> {
 }
 
 interface WithdrawData {
-  dan_amount: number;
+  baby_dan_amount: number;
   txn_hash: string;
 }
 
 interface PreWithdrawData {
-  dan_amount: number;
+  baby_dan_amount: number;
 }
 
 interface PreWithdrawResponse {
