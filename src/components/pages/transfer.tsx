@@ -78,12 +78,12 @@ export default function TransferPage() {
 
     try {
       console.log("Processing transfer:", {
-        dan_amount: amount,
+        baby_dan_amount: amount,
         to_wallet_address: toWalletAddress,
       });
 
       const result = await transferTokens({
-        dan_amount: amount,
+        baby_dan_amount: amount,
         to_wallet_address: toWalletAddress,
       });
 
@@ -144,7 +144,8 @@ export default function TransferPage() {
             <div
               className="rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center backdrop-blur-sm"
               style={{
-                background: "linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 235, 0.85) 60%, rgba(255, 240, 214, 0.9) 100%)",
+                background:
+                  "linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 235, 0.85) 60%, rgba(255, 240, 214, 0.9) 100%)",
                 backdropFilter: "blur(20px)",
                 boxShadow: "0px 0px 5px 0px #FFD700",
               }}
@@ -241,7 +242,7 @@ export default function TransferPage() {
         {transferSuccess && (
           <div className="max-w-2xl mx-auto mb-4 p-4 bg-green-900/50 rounded-lg border border-green-500">
             <p className="text-green-200 text-sm text-center">
-              ✅ Transfer successful! {transferSuccess.amount} DAN sent to
+              ✅ Transfer successful! {transferSuccess.amount} BBD sent to
               <br />
               <span className="text-xs opacity-75 font-mono">
                 {transferSuccess.toAddress}
