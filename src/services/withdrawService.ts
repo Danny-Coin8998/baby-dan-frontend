@@ -141,7 +141,7 @@ class WithdrawService {
       try {
         const { submitWithdraw } = useWithdrawStore.getState();
         const apiResponse = await submitWithdraw({
-          dan_amount: request.amount,
+          baby_dan_amount: request.amount,
           txn_hash: transferTx.hash,
         });
         console.log("Withdrawal data sent to API:", apiResponse.data);
