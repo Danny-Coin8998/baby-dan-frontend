@@ -19,6 +19,34 @@ import {
 
 import { useTeam, TreeNode as TreeNodeData } from "@/store/team";
 
+// Helper function to calculate tree depth
+const calculateTreeDepth = (node: TreeNodeData | null | undefined): number => {
+  if (!node) return 0;
+  
+  const leftDepth = node.children?.left 
+    ? calculateTreeDepth(node.children.left) 
+    : 0;
+  const rightDepth = node.children?.right 
+    ? calculateTreeDepth(node.children.right) 
+    : 0;
+  
+  return 1 + Math.max(leftDepth, rightDepth);
+};
+
+// Calculate minimum width needed for the tree based on depth
+const calculateMinWidth = (depth: number): number => {
+  // Base node width is 220px, with exponential spacing for each level
+  const baseNodeWidth = 220;
+  const gapMultiplier = 32; // 8 * 4 (gap-8)
+  
+  // Width grows exponentially: 2^(depth-1) nodes at the deepest level
+  const nodesAtDeepest = Math.pow(2, depth - 1);
+  const totalNodeWidth = nodesAtDeepest * baseNodeWidth;
+  const totalGapWidth = (nodesAtDeepest - 1) * gapMultiplier;
+  
+  return totalNodeWidth + totalGapWidth + 200; // Extra padding
+};
+
 interface TreeNodeProps {
   name: string;
   userid: number | string;
@@ -29,6 +57,7 @@ interface TreeNodeProps {
   refCode?: string;
   nodeData?: TreeNodeData;
   level?: number;
+  maxDepth?: number;
 }
 
 const TreeNode = ({
@@ -41,12 +70,16 @@ const TreeNode = ({
   refCode,
   nodeData,
   level = 0,
+  maxDepth = 1,
 }: TreeNodeProps) => {
   const hasChildren =
     nodeData?.children && (nodeData.children.left || nodeData.children.right);
 
+  // Calculate dynamic gap based on level and max depth
+  const dynamicGap = Math.max(8, (maxDepth - level) * 16);
+
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center shrink-0">
       {/* Node Card */}
       <div className="flex flex-col items-center group">
         <div
@@ -225,7 +258,10 @@ const TreeNode = ({
           </div>
 
           {/* Children Grid */}
-          <div className="w-full grid grid-cols-2 gap-8 pt-20">
+          <div
+            className="w-full grid grid-cols-2 pt-20"
+            style={{ gap: `${dynamicGap}px` }}
+          >
             {/* Left Child */}
             <div className="flex justify-center">
               {nodeData?.children?.left ? (
@@ -237,6 +273,7 @@ const TreeNode = ({
                   r_pv={nodeData.children.left.r_pv}
                   nodeData={nodeData.children.left}
                   level={level + 1}
+                  maxDepth={maxDepth}
                 />
               ) : (
                 <div
@@ -263,6 +300,7 @@ const TreeNode = ({
                   r_pv={nodeData.children.right.r_pv}
                   nodeData={nodeData.children.right}
                   level={level + 1}
+                  maxDepth={maxDepth}
                 />
               ) : (
                 <div
@@ -552,7 +590,7 @@ export default function TeamPage() {
 
       {/* Binary Tree Visualization */}
       <Card
-        className="transition-all duration-300 overflow-x-auto border-2 border-[#E5D5B7]"
+        className="transition-all duration-300 border-2 border-[#E5D5B7]"
         style={{
           background: "linear-gradient(180deg, #FFFFFF 0%, #FFF9F0 100%)",
         }}
@@ -567,27 +605,38 @@ export default function TeamPage() {
             </CardTitle>
           </div>
         </CardHeader>
-        <CardContent className="p-8 overflow-x-auto">
-          <div className="flex justify-center min-w-[800px]">
-            {/* Recursive Tree Structure */}
-            {teamData.tree ? (
-              <TreeNode
-                name={teamData.tree.firstname}
-                userid={teamData.tree.userid}
-                s_pv={teamData.tree.s_pv}
-                l_pv={teamData.tree.l_pv}
-                r_pv={teamData.tree.r_pv}
-                isRoot={true}
-                refCode={teamData.user.ref_code}
-                nodeData={teamData.tree}
-                level={0}
-              />
-            ) : (
-              <div className="text-center text-gray-600 py-12">
-                <p>No tree data available</p>
-              </div>
-            )}
-          </div>
+        <CardContent className="p-8 overflow-x-auto custom-scrollbar">
+          {teamData.tree ? (
+            (() => {
+              const treeDepth = calculateTreeDepth(teamData.tree);
+              const minWidth = calculateMinWidth(treeDepth);
+
+              return (
+                <div
+                  className="flex justify-center"
+                  style={{ minWidth: `${minWidth}px` }}
+                >
+                  {/* Recursive Tree Structure */}
+                  <TreeNode
+                    name={teamData.tree.firstname}
+                    userid={teamData.tree.userid}
+                    s_pv={teamData.tree.s_pv}
+                    l_pv={teamData.tree.l_pv}
+                    r_pv={teamData.tree.r_pv}
+                    isRoot={true}
+                    refCode={teamData.user.ref_code}
+                    nodeData={teamData.tree}
+                    level={0}
+                    maxDepth={treeDepth}
+                  />
+                </div>
+              );
+            })()
+          ) : (
+            <div className="text-center text-gray-600 py-12">
+              <p>No tree data available</p>
+            </div>
+          )}
         </CardContent>
       </Card>
 
