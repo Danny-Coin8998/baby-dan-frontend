@@ -186,7 +186,7 @@ export default function AdminDashboard() {
               >
                 Add Package
               </Button>
-              <Button className="h-20 text-lg" variant="outline">
+              {/* <Button className="h-20 text-lg" variant="outline">
                 Manage Users
               </Button>
               <Button className="h-20 text-lg" variant="outline">
@@ -200,7 +200,7 @@ export default function AdminDashboard() {
               </Button>
               <Button className="h-20 text-lg" variant="outline">
                 System Settings
-              </Button>
+              </Button> */}
             </div>
           </CardContent>
         </Card>
