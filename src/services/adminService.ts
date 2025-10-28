@@ -44,20 +44,6 @@ export interface DailyInvestmentResponse {
   data: DailyInvestment[];
 }
 
-export interface PackageItem {
-  p_id: number;
-  p_name: string;
-  p_percent: number;
-  p_period: string;
-  p_amount: number;
-  p_order: number;
-}
-
-export interface PackagesResponse {
-  success: boolean;
-  packages: PackageItem[];
-}
-
 export interface AddPackagePayload {
   p_id: string;
   wallet_address: string;
@@ -82,19 +68,6 @@ export const adminService = {
       return response.data;
     } catch (error) {
       console.error("Error fetching daily investments:", error);
-      throw error;
-    }
-  },
-
-  /**
-   * Get all packages
-   */
-  getPackages: async (): Promise<PackagesResponse> => {
-    try {
-      const response = await adminApiClient.get<PackagesResponse>("/packages");
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching packages:", error);
       throw error;
     }
   },

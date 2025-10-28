@@ -1,0 +1,82 @@
+{
+    "success": true,
+    "data": {
+        "packages": [
+            {
+                "p_id": 1,
+                "p_name": "10 USDT",
+                "p_percent": 1,
+                "p_period": "120",
+                "p_amount": 10,
+                "p_order": 1,
+                "required_baby_dan": 11.818907442609301,
+                "can_afford": true,
+                "user_balance": 0.5900000000000034,
+                "dan_price": 0.846101896351958
+            },
+            {
+                "p_id": 2,
+                "p_name": "100 USDT",
+                "p_percent": 1.1,
+                "p_period": "120",
+                "p_amount": 100,
+                "p_order": 2,
+                "required_baby_dan": 118.18907442609301,
+                "can_afford": true,
+                "user_balance": 0.5900000000000034,
+                "dan_price": 0.846101896351958
+            },
+            {
+                "p_id": 3,
+                "p_name": "500 USDT",
+                "p_percent": 1.2,
+                "p_period": "120",
+                "p_amount": 500,
+                "p_order": 3,
+                "required_baby_dan": 590.9453721304651,
+                "can_afford": true,
+                "user_balance": 0.5900000000000034,
+                "dan_price": 0.846101896351958
+            },
+            {
+                "p_id": 4,
+                "p_name": "1000 USDT",
+                "p_percent": 1.3,
+                "p_period": "120",
+                "p_amount": 1000,
+                "p_order": 4,
+                "required_baby_dan": 1181.8907442609302,
+                "can_afford": true,
+                "user_balance": 0.5900000000000034,
+                "dan_price": 0.846101896351958
+            },
+            {
+                "p_id": 5,
+                "p_name": "5000 USDT",
+                "p_percent": 1.4,
+                "p_period": "120",
+                "p_amount": 5000,
+                "p_order": 5,
+                "required_baby_dan": 5909.453721304651,
+                "can_afford": true,
+                "user_balance": 0.5900000000000034,
+                "dan_price": 0.846101896351958
+            },
+            {
+                "p_id": 6,
+                "p_name": "10000 USDT",
+                "p_percent": 1.5,
+                "p_period": "120",
+                "p_amount": 10000,
+                "p_order": 6,
+                "required_baby_dan": 11818.907442609301,
+                "can_afford": true,
+                "user_balance": 0.5900000000000034,
+                "dan_price": 0.846101896351958
+            }
+        ],
+        "total_count": 6,
+        "dan_price": 0.846101896351958,
+        "user_balance": 0.5900000000000034
+    }
+}
