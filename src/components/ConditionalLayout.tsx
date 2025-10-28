@@ -17,8 +17,11 @@ export const ConditionalLayout: React.FC<ConditionalLayoutProps> = ({
   // Check if current path is in unprotected routes
   const isUnprotectedRoute = unprotectedRoutes.includes(pathname);
 
-  // If it's an unprotected route (like login), render children directly
-  if (isUnprotectedRoute) {
+  // Check if current path is an admin route
+  const isAdminRoute = pathname.startsWith("/admin");
+
+  // If it's an admin route or unprotected route (like login), render children directly
+  if (isUnprotectedRoute || isAdminRoute) {
     return <>{children}</>;
   }
 
