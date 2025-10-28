@@ -4,7 +4,13 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import adminService, { PackageItem } from "@/services/adminService";
+import adminService from "@/services/adminService";
+import {
+  getStaticPackages,
+  getPackageById,
+  getPackageColor,
+  PackageItem,
+} from "@/utils/packageData";
 import Swal from "sweetalert2";
 
 interface AddPackageModalProps {
@@ -24,26 +30,24 @@ export default function AddPackageModal({
   const [submitting, setSubmitting] = useState(false);
   const cardsToShow = 3;
 
-  // Fetch packages when modal opens
+  // Fetch packages from static JSON when modal opens
   useEffect(() => {
     if (isOpen) {
-      fetchPackages();
+      loadPackages();
     }
   }, [isOpen]);
 
-  const fetchPackages = async () => {
+  const loadPackages = async () => {
     setLoading(true);
     try {
-      const response = await adminService.getPackages();
-      if (response.success) {
-        setPackages(response.packages);
-      }
+      const packagesData = await getStaticPackages();
+      setPackages(packagesData);
     } catch (error) {
-      console.error("Error fetching packages:", error);
+      console.error("Error loading packages:", error);
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Failed to fetch packages",
+        text: "Failed to load packages",
       });
     } finally {
       setLoading(false);
@@ -58,20 +62,6 @@ export default function AddPackageModal({
     setCurrentIndex((prev) =>
       Math.min(packages.length - cardsToShow, prev + 1)
     );
-  };
-
-  const getPackageColors = (amount: number) => {
-    const colorMap: Record<number, string> = {
-      10: "#3B82F6",
-      100: "#10B981",
-      300: "#F97316",
-      500: "#EF4444",
-      1000: "#FFD700",
-      3000: "#6366F1",
-      5000: "#EC4899",
-      10000: "#EAB308",
-    };
-    return colorMap[amount] || "#6B7280";
   };
 
   const handleSubmit = async () => {
@@ -93,7 +83,7 @@ export default function AddPackageModal({
       return;
     }
 
-    const selectedPkg = packages.find((pkg) => pkg.p_id === selectedPackage);
+    const selectedPkg = getPackageById(packages, selectedPackage);
 
     const result = await Swal.fire({
       title: "Confirm Add Package",
@@ -206,7 +196,7 @@ export default function AddPackageModal({
                     .slice(currentIndex, currentIndex + cardsToShow)
                     .map((pkg) => {
                       const isSelected = selectedPackage === pkg.p_id;
-                      const borderColor = getPackageColors(pkg.p_amount);
+                      const borderColor = getPackageColor(pkg.p_amount);
 
                       return (
                         <div
